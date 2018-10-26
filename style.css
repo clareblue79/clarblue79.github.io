@@ -430,10 +430,6 @@ h4{
 }
 
 
-.kexpD{
-    background-color: #FFA10C;
-}
-
 .kexpFS{
     background-color: RGBA(255, 161, 12, 0.4);
 }
@@ -628,10 +624,11 @@ h4{
     
     
     .parallax, .parallax3, .parallax8, .parallax11{
-    background-attachment: scroll;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+        background-image: none;
+        background-attachment: scroll;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     
     }
 }
