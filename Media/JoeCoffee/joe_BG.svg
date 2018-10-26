@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="1074px" viewBox="0 0 1440 1074" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>Background</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="1440" height="1074"></rect>
+        <linearGradient x1="95.4458805%" y1="91.1481798%" x2="6.59398809%" y2="13.7143964%" id="linearGradient-3">
+            <stop stop-color="#FDA074" stop-opacity="0.558735281" offset="0%"></stop>
+            <stop stop-color="#FC4B6A" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Portfolio.v2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Joe_Coffee_2">
+            <g id="Background">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Mask" fill-rule="nonzero"></g>
+                <rect id="Background-Copy" fill="url(#linearGradient-3)" mask="url(#mask-2)" x="0" y="0" width="1440" height="1080"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

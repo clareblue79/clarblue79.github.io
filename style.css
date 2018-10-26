@@ -1,0 +1,499 @@
+/*Clare F. Lee Web Portfolio V5
+Filename: style.css
+Author: Clare Frances Lee
+Last Modified Date: 10/22/2018
+
+
+GOOGLE FONTS
+font-family: 'Merriweather', serif;
+font-family: 'Quicksand', sans-serif;
+font-family: 'Lato', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Nixie One', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Quattrocento Sans', sans-serif;
+
+
+Style Sheet for Clare Lee's Portfolio
+
+COLORS:
+
+Orange main: FF7043, RGBA(255, 112, 67)
+Soft Brown: 7F5447, RGBA(127, 84, 71)
+Baby Pink: FFA98F RGBA(255, 169, 143)
+Joe Coffee Red: EE533E RGBA(238, 83, 62)
+JoeCoffee DarkRed: C2240E
+KEXP Yellow: FFA10C RGBA(255, 161, 12)
+LongP Purple: A23666 RGBA(162, 54, 102)
+
+
+*/
+body, html {
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+/* navigation bar styling*/
+.navbar{
+    font-family: "Quicksand", sans-serif;
+    box-shadow: none;
+    background-color: white;
+    padding-bottom: 1em;
+}
+
+.nav-item a{
+    opacity: 0.5 !important;
+    
+}
+
+.nav-item a:hover{
+    opacity: 1;
+    
+}
+
+.navbar-nav > li{
+  padding-left:2em;
+  padding-right:2em;
+}
+
+/*footer nav styling*/
+.footerNav{
+    margin-top: 3%;
+    font-family: "Quicksand", sans-serif;
+    padding-bottom:5%;
+
+}
+
+.activeFooterNav{
+    text-decoration: underline;
+    text-decoration-color: #ff7043;
+}
+
+.footerNav a{
+    color: #767676;
+    padding-left: 3%;
+    padding-right: 3%;
+    
+}
+
+
+/*scroll to top button*/
+
+#myBtn{
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    left: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+}
+
+
+
+/* Index.html elements styling =======================*/
+
+
+.parallax, .parallax2, .parallax3, .parallax4, .parallax5, .parallax6, .parallax7, .parallax8, .parallax9, .parallax10, .parallax11, .parallax12, .parallax13, .parallax14, .parallax15, .parallax16, .parallax17, .parallax18 { 
+    /* The image used */
+    background-image: url("Media/Index_Assets/BG1.svg");
+
+    /* Full height */
+    height: 100vph;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.parallax2{
+    background-image: url(Media/JoeCoffee/GroupPhoto.png);
+   
+}
+
+.parallax3{
+    background-image: url(Media/JoeCoffee/joeBG2.png);
+    /* background-image: url(Media/JoeCoffee/Background.svg)*/
+}
+
+.parallax4{
+    background-image: url(Media/JoeCoffee/joeLogoBG.png);
+}
+
+.parallax5{
+    background-image: url(Media/JoeCoffee/UserResearch/John2.png);
+}
+
+.parallax6{
+    background-image: url(Media/JoeCoffee/UserResearch/KaylaUsability.png);
+}
+
+.parallax7{
+    background-image: url(Media/JoeCoffee/UserResearch/Starbucks.svg);
+}
+
+.parallax8{
+    background-image: url(Media/KEXP/KexpBG2.png);
+}
+
+.parallax9{
+    background-image: url(Media/KEXP/KexpBG4.png);
+}
+
+.parallax10{
+    background-image: url(Media/KEXP/KexpBG5.png);
+}
+
+.parallax11{
+    background-image: url(Media/longP/bg2.png);
+}
+
+.parallax12{
+    background-image: url(Media/KEXP/KexpBG3.png);
+}
+
+.parallax13{
+    background-image: url(Media/longP/bg3.png);
+}
+
+.parallax14{
+    background-image: url(Media/longP/bg4.png);
+}
+
+.parallax15{
+    background-image: url(Media/longP/bg5.png);
+}
+
+.parallax16{
+    background-image: url(Media/longP/bg6.png);
+}
+
+.parallax17{
+    background-image: url(Media/longP/bg7.png);
+}
+
+.parallax18{
+    background-image: url(Media/Index_Assets/BG2.jpg);
+}
+
+
+
+.main{
+    margin: 0 auto;
+    padding: 5%;
+}
+
+.indexImage{
+    padding-left: 10%;
+    padding-top: 5%;
+}
+
+
+h1 {
+    font-family: 'Playfair Display', serif;
+}
+
+h1{
+    color:#FF7043;
+}
+
+h2, h3, h4{
+    font-family: 'Nixie One', cursive;
+    color: #7F5447;
+    
+}
+
+h4{
+    font-weight: 900;
+}
+
+.overlayText{
+    font-family: "Nixie One", cursive;
+    font-weight: 900;
+    font-size: 200%;
+    padding-bottom: 5%;
+    margin: 0 auto;
+    text-align: center;
+    color: #7F5447;  
+}
+
+/* Case Study Titles*/
+
+.joeCoffeeText, .KEXPText, .longPText, h3, h4{
+   /* text-align: right;*/
+}
+
+.joeCoffeeText{
+    color: #EE533E;
+}
+
+.KEXPText{
+    color: #FFA10C;
+}
+
+.longPText{
+    color: #A23666;
+}
+
+
+/*custom cursor css*/
+.peekaboo{
+    cursor: url(Media/Cursor/Avocado.svg), pointer;
+   
+}
+
+
+.coffeeCursor{
+    cursor: url(Media/Cursor/Coffee2.svg), pointer;
+}
+
+.radioCursor{
+    cursor: url(Media/Cursor/Kexp2.svg), pointer;
+}
+
+.takeOutCursor{
+    cursor: url(Media/Cursor/LongP2.svg), pointer;
+}
+
+.hire{
+    cursor: url(Media/Cursor/hire.svg), pointer;
+}
+
+.hire2{
+    cursor: url(Media/Cursor/hire2.svg), pointer;
+}
+
+#top, #joe, #kexp, #longP{
+    padding-bottom: 5%;
+    margin-bottom: 10%;
+}
+
+.caseStudyLink{
+    font-family: "Quicksand", sans-serif;
+    color: #767676;
+    margin-top: 3%;
+}
+
+.caseStudyLink:hover{
+    color: #FF7043;
+}
+
+.caseTop{
+    margin-top: 25%;
+}
+
+
+/* End of Index.html elements styling =======================*/
+
+
+/* Casestudy Styling ===================*/
+
+.active{
+    border-bottom: 4px solid black;
+}
+
+.joeNav{ 
+    background-color: rgba(255,255,255, 0);
+}
+
+.joeNav .nav-item a:{
+    color: #7F5447;
+}
+
+
+.sectionT, .sectionT2 {
+    font-family: 'Playfair Display', sans-serif;
+    color: #C2240E;
+    padding-bottom: 3%;
+}
+
+
+.subT, .subT2{
+    font-family: 'Open Sans', sans-serif;
+    text-align: left;
+    color: black;
+}
+
+
+.row3{
+    margin-bottom: 3%;
+}
+
+
+.highlight{
+    font-weight:bold;
+    color: #C2240E;
+}
+
+/*Joe Coffee Case Styling*/
+
+/*.caseTop h1, .caseTop h3, .caseTop h4{
+    text-align: left;
+}*/
+
+.joeLink{
+    color: #EE533E;
+    font-weight: bold;
+}
+
+.joeCoffeeText2{
+    color: #C2240E;
+    
+}
+
+#myBtn2{
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+}
+
+.blockquote-footer{
+    color: black;
+    font-weight: 100%;
+}
+
+.onTopImg, .blockquote {
+    background-color: rgba(255,255,255, 0.7);
+    padding: 3%;
+}
+
+.row2{
+    margin-top: 5%;
+}
+
+.important, .important2, .important3{
+    font-weight: bold;
+    color: #901100;
+}
+
+
+/* KEXP styling */
+#KEXPLink{
+    color:#FFA10C;
+}
+
+.sectionT2, .important2{
+    color:#FF7043
+}
+
+
+.kexpD{
+    background-color: #FFA10C;
+}
+
+.kexpFS{
+    background-color: RGBA(255, 161, 12, 0.4);
+}
+
+.paperBG{
+    background-image: url(Media/KEXP/KexpBG5.png);
+    padding: 5%;
+}
+
+
+/*LongP styling */
+
+.sectionT3, #longPLink{
+    color: #A23666;
+    
+}
+
+.important3{
+    color: purple;
+}
+
+.personaN3, .personaQuote{
+    color: #A23666;
+    margin-top: 2%;
+}
+
+.personaQuote{
+    margin-bottom: 3%;
+    font-weight: 800;
+}
+
+.noStyleList{
+    list-style:none;
+    margin: 0;
+    padding: 0;
+}
+
+.noStyleList li{
+    margin-top: 1%;
+}
+
+
+/* About Me Page */
+
+.clareAbout, .clareName2{
+    color: black;
+}
+
+.resumeB2, .gitB2, .linkedInB2{
+   
+    margin: 5%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+.resumeB2{
+    color: dimgrey;
+    border-color:dimgrey;
+}
+
+
+.gitB2{
+    border-color:#6e5494;
+    color: #6e5494;
+}
+
+
+.linkedInB2{
+    border-color:#0077B5;
+    color: #0077B5;
+    
+}
+
+.work{
+    color:#4A4A4A;
+}
+
+
+
+
+/* mobile styling */
+@media screen and (max-width: 768px){
+    .nav-item a{
+        text-align: right !important;
+    }
+    
+    h1{
+        font-size: 300% !important;
+    }
+    
+    h1, .joeCoffeeText, .KEXPText, .longPText, h3, h4, h2 {
+        text-align: center !important;
+    }
+    
+    h4, .clareName{
+        padding-top: 3%;
+    }
+    
+    .parallax{
+        background-image: none;
+    }
+    
+    #myBtn2, #myBtn{
+        display: none;
+    }
+    
+    
+
+    
+}
