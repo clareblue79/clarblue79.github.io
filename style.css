@@ -96,7 +96,7 @@ body, html {
 
 .parallax, .parallax2, .parallax3, .parallax4, .parallax5, .parallax6, .parallax7, .parallax8, .parallax9, .parallax10, .parallax11, .parallax12, .parallax13, .parallax14, .parallax15, .parallax16, .parallax17, .parallax18 { 
     /* The image used */
-    background-image: url("Media/Index_Assets/BG1.svg");
+    background-image: url("Media/Index_Assets/BG1.jpg");
 
     /* Full height */
     height: 100vph;
