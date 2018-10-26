@@ -27,7 +27,7 @@ Home page -->
     <!--CSS and google font -->
     <link rel="stylesheet" href="style.css">
  <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Nixie+One|Quicksand|Open+Sans|Raleway" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon/radio.ico">
+    <link id="favicon" rel="shortcut icon" type="image/x-icon" href="favicon/radio.ico">
 
 </head>
 
@@ -70,7 +70,7 @@ Home page -->
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link hire2" href="mailto:leeclarefrances@gmail.com" target="_top" id="contact"> CONTACT </a>
+                            <a class="nav-link" href="mailto:leeclarefrances@gmail.com" target="_top" id="contact"> CONTACT </a>
                         </li>
                         
                      </ul>
@@ -518,15 +518,16 @@ $(function() {
 
 	// Change page title on blur
 	$(window).blur(function() {
-	  $("title").text("Don't leave just yet");
+	  $("title").text("Please don't go...");
+        $("#favicon").attr("href","favicon/sad.ico");
 	});
 
 	// Change page title back on focus
 	$(window).focus(function() {
 	  $("title").text(pageTitle);
+        $("#favicon").attr("href","favicon/radio.ico");
 	});
 });
-
     
 $(function () {
   var lastScrollTop = 0;
