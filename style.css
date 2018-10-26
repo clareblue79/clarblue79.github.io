@@ -96,7 +96,7 @@ body, html {
 
 .parallax, .parallax2, .parallax3, .parallax4, .parallax5, .parallax6, .parallax7, .parallax8, .parallax9, .parallax10, .parallax11, .parallax12, .parallax13, .parallax14, .parallax15, .parallax16, .parallax17, .parallax18 { 
     /* The image used */
-    background-image: url("Media/Index_Assets/BG1.jpg");
+    background-image: url("Media/Index_Assets/BG1-1.svg");
 
     /* Full height */
     height: 100vph;
@@ -176,7 +176,7 @@ body, html {
 }
 
 .parallax18{
-    background-image: url(Media/Index_Assets/BG2.jpg);
+    background-image: url(Media/Index_Assets/BG2-1.svg);
 }
 
 
@@ -512,6 +512,16 @@ h4{
     border-color:#0077B5;
     color: #0077B5;
     
+}
+
+.googlePlay{
+    border-color:#3cba54;
+    color: #3cba54;
+}
+
+.itunes{
+    border-color:#767676;
+    color: #767676;
 }
 
 .work{
