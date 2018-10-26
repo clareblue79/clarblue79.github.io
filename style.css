@@ -525,7 +525,9 @@ h4{
 }
 
 
-
+#foosball{
+    margin-bottom: 15%;
+}
 
 /* mobile styling */
 @media screen and (max-width: 768px){
