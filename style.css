@@ -625,12 +625,12 @@ h4{
     }
     
     
-    .parallax, .parallax3, .parallax8, .parallax11{
+    /*.parallax, .parallax3, .parallax8, .parallax11{
         background-image: none;
         background-attachment: scroll;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
     
-    }
+    } */
 }
