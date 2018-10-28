@@ -34,6 +34,9 @@ body, html {
     font-family: 'Open Sans', sans-serif;
 }
 
+.topPadding{
+    padding-top: 3%;
+}
 
 /* navigation bar styling*/
 .navbar{
@@ -115,7 +118,7 @@ body, html {
 }
 
 .parallax3{
-    background-image: url(Media/JoeCoffee/joeBG2.png);
+    background-image: url(Media/newBG/joe.png);
     /* background-image: url(Media/JoeCoffee/Background.svg)*/
 }
 
@@ -136,7 +139,7 @@ body, html {
 }
 
 .parallax8{
-    background-image: url(Media/KEXP/KexpBG2.png);
+    background-image: url(Media/newBG/kexp.png);
 }
 
 .parallax9{
@@ -148,7 +151,7 @@ body, html {
 }
 
 .parallax11{
-    background-image: url(Media/longP/bg2.png);
+    background-image: url(Media/newBG/longP.png);
 }
 
 .parallax12{
@@ -156,7 +159,7 @@ body, html {
 }
 
 .parallax13{
-    background-image: url(Media/longP/bg3.png);
+    background-image: url(Media/longP/bg3.png)
 }
 
 .parallax14{
@@ -193,7 +196,7 @@ body, html {
 
 
 h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 h1{
@@ -201,9 +204,18 @@ h1{
 }
 
 h2, h3, h4{
-    font-family: 'Nixie One', cursive;
+    font-family: 'Raleway', sans-serif;
     color: #7F5447;
     
+}
+
+.emph{
+    font-weight: 900;
+    color: #5A3A31;
+}
+
+.indexD{
+    margin-top: 2%;
 }
 
 h4{
@@ -211,8 +223,7 @@ h4{
 }
 
 .overlayText{
-    font-family: "Nixie One", cursive;
-    font-weight: 900;
+    font-family: "Raleway", sans-serif;
     font-size: 200%;
     padding-bottom: 5%;
     margin: 0 auto;
@@ -282,7 +293,8 @@ h4{
 }
 
 .caseTop{
-    margin-top: 25%;
+    margin-top: 20%;
+    margin-left: 3%
 }
 
 
@@ -297,15 +309,19 @@ h4{
 
 .joeNav{ 
     background-color: rgba(255,255,255, 0);
+    transition: top 0.3s;
 }
 
 .joeNav .nav-item a:{
     color: #7F5447;
 }
 
+.quickS{
+    font-family: 'Quicksand', sans-serif;
+}
 
-.sectionT, .sectionT2 {
-    font-family: 'Playfair Display', sans-serif;
+.sectionT, .sectionT2, .sectionT3 {
+    font-family: 'Raleway', sans-serif;
     color: #C2240E;
     padding-bottom: 3%;
 }
@@ -527,6 +543,10 @@ h4{
 
 #foosball{
     margin-bottom: 15%;
+}
+
+.row3{
+    margin-top: 10%;
 }
 
 /* mobile styling */
