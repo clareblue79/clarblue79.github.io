@@ -293,10 +293,13 @@ h4{
 }
 
 .caseTop{
-    margin-top: 20%;
-    margin-left: 3%
+    margin-top: 15%;
 }
 
+.fullviewH{
+    height: 100%;
+    
+}
 
 /* End of Index.html elements styling =======================*/
 
@@ -644,6 +647,9 @@ h4{
         font-size: 120%;
     }
     
+    .emph{
+        text-align: left;
+    }
     
     /*.parallax, .parallax3, .parallax8, .parallax11{
         background-image: none;
