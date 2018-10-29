@@ -595,10 +595,14 @@ h4{
     
     }
     
-    #myBtn2, #myBtn, .footerNav, .mobileHide {
+    .footerNav, .mobileHide {
         position: absolute !important;
         top: -9999px !important;
         left: -9999px !important;
+    }
+    
+    #myBtn2, #myBtn{
+        display: none;
     }
     
     
@@ -615,6 +619,7 @@ h4{
     
     .joeNav{ 
         background-color: rgba(255,255,255, 1);
+        
     }
     
     .col-md-5{
