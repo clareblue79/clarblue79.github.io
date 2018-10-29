@@ -602,7 +602,7 @@ h4{
     }
     
     #myBtn2, #myBtn{
-        display: none;
+        display: none !important;
     }
     
     
