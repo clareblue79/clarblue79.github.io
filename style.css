@@ -139,7 +139,7 @@ body, html {
 }
 
 .parallax8{
-    background-image: url(Media/newBG/kexp.png);
+    background-image: url(Media/KEXP/KexpBG2.png);
 }
 
 .parallax9{
@@ -601,7 +601,7 @@ h4{
         left: -9999px !important;
     }
     
-    #myBtn2, #myBtn{
+    #myBtn2, #myBtn, .mobileNo{
         display: none !important;
     }
     
