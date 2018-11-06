@@ -571,6 +571,10 @@ h4{
     margin-top: 15%;
 }
 
+ .mobileOnly{
+        display: none;
+    }
+
 /* mobile styling */
 @media screen and (max-width: 768px){
     .nav-item a{
@@ -593,6 +597,18 @@ h4{
     h4, .clareName{
         padding-top: 3%;
         
+    }
+    
+    
+    .mobileOnly{
+        display: block !important;
+    }
+    
+    .indexImage{
+        padding-left: 0!important;
+        padding-top: 0!important;
+        margin: 0 auto;
+        text-align: center;
     }
     
     .clareName2{
