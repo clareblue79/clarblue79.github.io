@@ -63,7 +63,7 @@ body, html {
 
 /*footer nav styling*/
 .footerNav{
-    margin-top: 3%;
+    margin-top: 7%;
     font-family: "Quicksand", sans-serif;
     padding-bottom:5%;
 
@@ -190,13 +190,13 @@ body, html {
 }
 
 .indexImage{
-    padding-left: 10%;
-    padding-top: 5%;
+    padding-left: 7em;
+    padding-top: 8.5em;
 }
 
 
 h1 {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 h1{
@@ -204,7 +204,7 @@ h1{
 }
 
 h2, h3, h4{
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: #7F5447;
     
 }
@@ -318,12 +318,10 @@ h4{
     color: #7F5447;
 }
 
-.quickS{
-    font-family: 'Quicksand', sans-serif;
-}
+
 
 .sectionT, .sectionT2, .sectionT3 {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: #C2240E;
     padding-bottom: 3%;
 }
@@ -340,6 +338,14 @@ h4{
     margin-bottom: 3%;
 }
 
+.bottomMargin{
+    margin-bottom: 8%;
+}
+
+.row4{
+    margin-bottom: 10%;
+    margin-top: 5%;
+}
 
 .highlight{
     font-weight:bold;
@@ -424,8 +430,15 @@ h4{
 }
 
 .onTopImg, .blockquote {
-    background-color: rgba(255,255,255, 0.7);
+    background-color: rgba(255,255,255, 0.6);
     padding: 3%;
+    margin-top: 2%;
+    margin-bottom: 7%;
+}
+
+.onTopImg2{
+    background-color: rgba(255,255,255, 0.5);
+    padding: 2%;
 }
 
 .row2{
@@ -437,6 +450,9 @@ h4{
     color: #901100;
 }
 
+.greyText{
+    color: #606060;
+}
 
 /* KEXP styling */
 #KEXPLink{
@@ -502,7 +518,7 @@ h4{
 }
 
 .resumeB2, .gitB2, .linkedInB2{
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin: 5%;
     border-radius: 5px;
     text-align: center;
@@ -551,6 +567,10 @@ h4{
     margin-top: 10%;
 }
 
+.topSpace{
+    margin-top: 15%;
+}
+
 /* mobile styling */
 @media screen and (max-width: 768px){
     .nav-item a{
@@ -562,8 +582,7 @@ h4{
     }
     
     h1, .joeCoffeeText, .KEXPText, .longPText, h3, h4, h2, .overlayText {
-        text-align: center;
-        font-family: 'Raleway', sans-serif;
+        font-family: 'Open Sans', sans-serif;
         
     }
     
@@ -608,7 +627,7 @@ h4{
     
     .sectionT, .sectionT2, .sectionT3{
         font-size: 200% !important;
-        font-family: 'Raleway', sans-serif;
+        font-family: 'Open Sans', sans-serif;
     }
     
     .lead{
@@ -664,6 +683,14 @@ h4{
         display:none;
     }
     
+    .row4{
+        margin-bottom: 3%;
+        margin-top: 3%;
+    }
+    
+    .topSpace{
+        margin-top: 3%;
+    }
     
     /*.parallax, .parallax3, .parallax8, .parallax11{
         background-image: none;
