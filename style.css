@@ -139,7 +139,7 @@ body, html {
 }
 
 .parallax8{
-    background-image: url(Media/KEXP/KexpBG2.png);
+    background-image: url(Media/JoeCoffee/joeBG3.png);
 }
 
 .parallax9{
@@ -575,6 +575,14 @@ h4{
         display: none;
     }
 
+
+.hifi{
+    
+}
+
+.iteration{
+	display:inline-block;
+}
 /* mobile styling */
 @media screen and (max-width: 768px){
     .nav-item a{
