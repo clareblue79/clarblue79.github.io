@@ -300,6 +300,10 @@ h4{
     
 }
 
+.tabcontent{
+    display: none;
+}
+
 /* End of Index.html elements styling =======================*/
 
 
@@ -580,9 +584,8 @@ h4{
     
 }
 
-.iteration{
-	display:inline-block;
-}
+
+
 /* mobile styling */
 @media screen and (max-width: 768px){
     .nav-item a{
