@@ -1,291 +1,271 @@
-<!-- Clare F. Lee Web Portfolio V5
-Filename: index.html
-Author: Clare Frances Lee
-Last Modified Date: 10/22/2018
-
-Home page --> 
-    
-
-<!doctype html>
-<html lang='en'>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <meta name=author content="Clare Frances Lee">
-    <meta name="description" content="Hello, I am a UI/UX Designer @ Plain Concepts, Seattle. Check out my projects!"> 
-    
-    <title>Clare F. Lee</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Material Design Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.10/css/mdb.min.css" rel="stylesheet">
-    
-    <!--CSS and google font -->
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Quicksand|Open+Sans|Raleway" rel="stylesheet">
-    
-    <link id="favicon" rel="shortcut icon" type="image/x-icon" href="favicon/avocado.ico">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, interactive-widget=resizes-content">
+<title>Clare Lee — AI UX Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300;400;500;600&family=Trirong:ital,wght@0,300;0,400;1,300&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=10">
 </head>
-
 <body>
-    <div class="main">
-    
-<nav class="navbar navbar-expand-lg top navbar-light nav">
 
-                <!-- Collapsible content -->
-                <div class="navbar-collapse show  justify-content-end" id="myNav">
-                         
-                    <ul class="navbar-nav nav-fill">
-                        
-                       
+<div class="grid-overlay" id="gridOverlay"></div>
+<div class="grid-glow" id="gridGlow"></div>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html" id="aboutMe2"> ABOUT ME </a>
-                        </li>
-                        
-                         <li class="nav-item">
-                            <a class="nav-link" href="mailto:leeclarefrances@gmail.com" target="_top" id="contact"> CONTACT </a>
-                        </li>
-                        
-                        
-                     </ul>
-                    
-                </div>
-                <!-- Collapsible content -->
+<div class="input-backdrop" id="inputBackdrop"></div>
+
+<div class="page">
+
+<nav id="mainNav">
+  <span class="nav-version">v.2026-New-York</span>
+  <a href="#" class="nav-logo" id="navLogoLink">
+    <span class="nav-logo-name" id="navLogoName" style="opacity:0;transition:opacity 0.15s ease;">Clare Lee</span>
+  </a>
+  <div class="nav-available-end">
+    <div class="nav-available" onclick="openModal('');return false;" role="button" tabindex="0">
+      <div class="dot"></div>Available
+      <div class="available-popover">Available for the next design adventure.<br>Send me a message.</div>
+    </div>
+  </div>
 </nav>
-    
-<!-- Container element -->
-        
-<button class="btn brown darken-2 waves-effect btn-md" onclick="topFunction()" id="myBtn2" title="Go to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
-    
-        
-<div class="parallax">
-        
-    <div class="container animated slideInUp">
-        <div class="row justify-content-center" id="top">
-            <div class="col-lg-6 align-self-center indexImage">
-                <div class="view overlay zoom">
-                     <img src="Media/Index_Assets/Peekaboo.png" class="img-fluid hoverable" alt="Clare Lee Peekaboo">
-                    <a href="about.html"><div class="mask flex-center rgba-green-strong peekaboo">
-                        <p class="white-text overlayText">Peekaboo! <br> Let's avoconnect :&#41 </p>
-                    </div></a>
-                </div>
-               
-                
+
+<section class="hero">
+  <h1 class="hero-name" id="heroName">Clare Lee</h1>
+  <div class="hero-name-spacer"></div>
+  <p class="hero-tagline" id="heroTagline"><span class="cursor"></span></p>
+  <p class="hero-work-line" id="heroWorkLine">
+    AI Monetization @ <a href="https://microsoft.ai/" target="_blank">Microsoft</a>.<br>
+    Last shipped: <a href="#brand-agents" onclick="document.getElementById('brand-agents').scrollIntoView({behavior:'smooth'});return false;">Brand Agents</a>.
+  </p>
+</section>
+
+<div class="soft-divider"></div>
+
+<section class="section" id="work">
+  <div class="section-inner">
+    <div class="section-label" data-label="Work" id="label-work"><span class="label-text"></span></div>
+    <div id="content-work">
+      <div class="message-thread">
+        <div class="message-row user"><div class="msg-avatar user-av">?</div><div class="message-bubble">Walk me through your best work.</div></div>
+        <div class="message-row clare"><div class="msg-avatar clare-av">c</div><div class="message-bubble">An AI-powered shopping experience for brands — bringing the best of the in-store sales associate experience online.</div></div>
+        <div class="card-with-date">
+        <div class="card-date">Nov 2024 – Dec 2025</div>
+        <div class="project-card" id="brand-agents">
+          <div class="card-visual card-visual-default">
+            <video autoplay muted loop playsinline>
+              <source src="assets/brand-agents.webm" type="video/webm">
+            </video>
+            <div class="card-tag-overlay">Shipped</div>
+          </div>
+          <div class="card-body">
+            <div class="project-title">Brand Agents: AI-Powered Conversion</div>
+            <div class="deliverable-tags"><span class="d-tag">0 to 1</span><span class="d-tag">Agent Framework</span><span class="d-tag">GenUX Library</span><span class="d-tag">Research</span></div>
+            <div class="metrics">
+              <div class="metric"><span class="metric-num" data-target="1.52" data-suffix="×">1.52×</span><span class="metric-label">Conversion lift</span></div>
+              <div class="metric"><span class="metric-num" data-target="76.5" data-suffix="%">76.5%</span><span class="metric-label">Session success</span></div>
+              <div class="metric"><span class="metric-num" data-target="100" data-suffix="+">100+</span><span class="metric-label">Active agents</span></div>
             </div>
-            
-            <div class="col-lg-6 align-self-end">
-                <h1 class="display-1 clareName">CLARE FRANCES LEE</h1>
-                <h2 class="h3-responsive emph"> User Experience Designer @ <span style="color:#5A3A31;text-decoration: underline;">Microsoft</span> </h2>
-            </div>
+            <button class="card-expand-btn"><span class="expand-arrow">▼</span> More details</button>
+            <div class="card-expanded"><div class="card-expanded-inner">
+              <div class="detail-block"><span class="detail-label">0 to 1</span><span class="detail-text">From concept pitch through strategy, partner onboarding, build, bug-bashing, and delivery. <strong>Owned end-to-end.</strong></span></div>
+              <div class="detail-block"><span class="detail-label">Research</span><span class="detail-text">45+ user research sessions — from planning to interviews, synthesis, and analysis. <strong>Design-led.</strong></span></div>
+              <div class="detail-block"><span class="detail-label">Agent Mode Framework</span><span class="detail-text">Defined common UX archetypes based on <strong>user intent</strong> — identifying recurring scenarios and establishing <strong>design principles for agentic behavior.</strong></span></div>
+              <div class="detail-block"><span class="detail-label">GenUX Library</span><span class="detail-text">Defined <strong>generative UX component patterns</strong> that map to each agent mode — reusable, scalable, and consistently applied across all brand partners.</span></div>
+              <p style="font-size:12px;color:#4A4845;font-family:'Quicksand',sans-serif;font-style:italic;">Message me for the full case study.</p>
+              <div class="detail-block"><a href="https://clarity.microsoft.com/brand-agents" target="_blank" class="detail-label-link" data-preview="assets/BrandAgentScreenshotPreivew.png" data-caption="Try out Brand Agents"><span class="detail-label">Learn more about Brand Agents ↗</span></a></div>
+            </div></div>
+          </div>
         </div>
         </div>
-    <!--/div-->
-    
-    
-     <div class="container wow slideInUp">
-        <div class="row justify-content-center" id="kexp">
-            <div class="col-lg-6 align-self-center indexImage" >
-                <div class="view overlay zoom">
-                     <img src="Media/Index_Assets/KEXP.png" class="img-fluid hoverable" alt="KEXP Index Image">
-                    <a href="kexp.html"><div class="mask flex-center rgba-yellow-strong radioCursor">
-                        <p class="overlayText white-text">Turn up your radio and <br>check out my case study</p>
-                    </div></a>
-                </div>
-               
-                
-            </div>
-            
-            <div class="col-lg-6 align-self-end">
-               
-                
-                <h1 class="display-2 KEXPText">KEXP</h1>
-                 <h4 class="h4-responsive emph">INTERACTION &amp; VISUAL DESIGN</h4>
-                
-                <h3 class="h3-responsive indexD emph">Creating a content rich radio experience for the listeners community</h3>
-                <!--a href="kexp.html"><h4 class="h4-responsive caseStudyLink">READ CASE STUDY</h4></a-->
-            </div>
+
+        <div class="message-row user"><div class="msg-avatar user-av">?</div><div class="message-bubble">What are you currently working on?</div></div>
+        <div class="message-row clare"><div class="msg-avatar clare-av">c</div><div class="message-bubble">Designing the future of how publishers monetize in an AI world.</div></div>
+        <div class="card-with-date">
+        <div class="card-date">2025 – Present</div>
+        <div class="project-card" id="publisher">
+          <div class="card-visual card-visual-default"><div class="card-visual-grid"></div><div class="card-visual-icon"><span>📡</span><p>UI placeholder — Publisher Platform</p></div><div class="card-tag-overlay"><span class="tag-dot"></span> In progress</div></div>
+          <div class="card-body">
+            <div class="project-title">Microsoft AI Monetization for Publishers</div>
+            <div class="deliverable-tags"><span class="d-tag">Publisher Content Marketplace</span><span class="d-tag">Microsoft Monetize</span><span class="d-tag">Media Marketplace</span></div>
+            <button class="card-expand-btn"><span class="expand-arrow">▼</span> More details</button>
+            <div class="card-expanded"><div class="card-expanded-inner">
+              <div class="detail-block"><a href="https://about.ads.microsoft.com/en/blog/post/february-2026/building-toward-a-sustainable-content-economy-for-the-agentic-web" target="_blank" class="detail-label-link" data-preview="assets/PCMScreenshotPreivew.png" data-caption="Read about Publisher Content Marketplace"><span class="detail-label">Publisher Content Marketplace ↗</span></a><span class="detail-text">Exploring how AI builders and publishers license premium content.</span></div>
+              <div class="detail-block"><a href="https://about.ads.microsoft.com/en/solutions/technology/microsoft-monetize" target="_blank" class="detail-label-link" data-preview="assets/MonetizeScreenshotPreivew.png" data-caption="Learn more about Microsoft Monetize"><span class="detail-label">Microsoft Monetize ↗</span></a><span class="detail-text">Making complex supply-side operations intuitive for publishers through AI-focused Copilot features.</span></div>
+              <div class="detail-block"><a href="https://mediamarketplace.ads.microsoft.com/" target="_blank" class="detail-label-link" data-preview="assets/MediaMarketplaceScreenshotPreivew.png" data-caption="Visit Media Marketplace"><span class="detail-label">Media Marketplace ↗</span></a><span class="detail-text">Reimagining the media planning experience.</span></div>
+            </div></div>
+          </div>
         </div>
+        </div>
+
+        <div class="message-row user"><div class="msg-avatar user-av">?</div><div class="message-bubble">What's your earlier Microsoft work about?</div></div>
+        <div class="message-row clare"><div class="msg-avatar clare-av">c</div><div class="message-bubble">I focused on simplifying Microsoft Advertising for SMB customers, reducing friction to jump start their first working campaign.</div></div>
+        <div class="card-with-date">
+        <div class="card-date">2020 – 2023</div>
+        <div class="project-card">
+          <div class="card-visual card-visual-smb"><div class="card-visual-grid"></div><img class="logo-fill" src="assets/MicrosoftAdvertisingLogo.png" style="position:relative;z-index:1;" alt="Microsoft Advertising"><div class="card-tag-overlay">🔒 NDA</div></div>
+          <div class="card-body">
+            <div class="project-title">SMB Advertising Experiences</div>
+            <div class="deliverable-tags"><span class="d-tag">Smart Pages</span><span class="d-tag">Auto Conversion Goals</span><span class="d-tag">End to End Design</span><span class="d-tag">50+ User Interviews</span></div>
+            <div class="metrics">
+              <div class="metric"><span class="metric-num">3×</span><span class="metric-label">Attributed conversions</span></div>
+              <div class="metric"><span class="metric-num">~$25M</span><span class="metric-label">Revenue impact</span></div>
+            </div>
+            <button class="card-expand-btn"><span class="expand-arrow">▼</span> More details</button>
+            <div class="card-expanded"><div class="card-expanded-inner">
+              <div class="detail-block"><span class="detail-label">Smart Pages</span><span class="detail-text">Designed end-to-end from discovery through launch — 50+ user interviews across multiple research rounds, reaching 4,000+ active pages. <em>(Deprecated 2024)</em></span></div>
+              <div class="detail-block"><span class="detail-label">Auto Conversion Goals</span><span class="detail-text">Redesigned the conversion tracking setup flow using auto-goal detection, achieving 2.4× active tag rate, 2.7× conversion detection, 3× attributed conversions, and ~$25M in revenue impact.</span></div>
+            </div></div>
+          </div>
+        </div>
+        </div>
+
+        <div class="message-row user"><div class="msg-avatar user-av">?</div><div class="message-bubble">Can I see the full case studies?</div></div>
+        <div class="message-row clare"><div class="msg-avatar clare-av">c</div><div class="message-bubble">Most of my work is under NDA, but I'm happy to walk you through it. Reach out and I'll share what I can, case by case.<br><br><a href="#" class="contact-btn" onclick="openModal('');return false;">✉ Let's connect</a></div></div>
+      </div>
     </div>
+  </div>
+</section>
 
-    
-<!--div class="parallax2"-->
+<div class="soft-divider"></div>
 
-        <div class="container wow slideInUp">
-        <div class="row justify-content-center"  id="joe">
-            <div class="col-lg-6 align-self-center indexImage">
-                <div class="view overlay zoom">
-                     <img src="Media/Index_Assets/Joe_Coffee.png" class="img-fluid hoverable" alt="Joe Coffee Index Image">
-                    <a href="joe.html"><div class="mask flex-center rgba-red-strong coffeeCursor">
-                        <p class="overlayText white-text">Grab a cup of coffee and check out my case study</p>
-                    </div></a>
-                </div>
-               
-                
-            </div>
-            
-            <div class="col-lg-6 align-self-end">
-                
-                <h1 class="display-2 joeCoffeeText">JOE COFFEE</h1>
-                <h4 class="h4-responsive emph">UX RESEARCH</h4>
-                <h3 class="h3-responsive indexD emph">Creating a work flow optimized mobile order ahead experience for local cafes</h3>
-                <!--a href="joe.html"><h4 class="h4-responsive caseStudyLink">READ CASE STUDY</h4></a-->
-            </div>
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label" data-label="Previously" id="label-prev"><span class="label-text"></span></div>
+    <div id="content-prev">
+      <div class="message-thread">
+        <div class="message-row user"><div class="msg-avatar user-av">?</div><div class="message-bubble">What came before Microsoft?</div></div>
+        <div class="message-row clare"><div class="msg-avatar clare-av">c</div><div class="message-bubble">Started my career doing end-to-end client work in Seattle, then a little side project that got out of hand.</div></div>
+        <div class="card-with-date">
+        <div class="card-date">2018 – 2019</div>
+        <div class="project-card">
+          <div class="card-visual card-visual-plain"><div class="card-visual-grid" style="background-image:radial-gradient(circle,rgba(0,0,0,0.07) 1px,transparent 1px);background-size:16px 16px;"></div><img class="logo-fill" src="assets/PlainConceptsLogo.svg" style="position:relative;z-index:1;" alt="Plain Concepts"></div>
+          <div class="card-body">
+            <div class="project-title">Plain Concepts — UI/UX Designer</div>
+            <div class="deliverable-tags"><span class="d-tag">Client Work</span><span class="d-tag">Microsoft AI Lab</span><span class="d-tag">End to End UX</span></div>
+            <p style="font-size:12px;color:var(--ink-muted);line-height:1.6;margin-top:4px;">End-to-end UX design in Seattle, including Microsoft AI lab initiatives. That's where the Microsoft thread started.</p>
+            <div style="margin-top:10px;"><a href="https://www.plainconcepts.com/" target="_blank" class="detail-label-link" data-preview="assets/PlainConceptsPreview.png" data-caption="Visit PlainConcepts"><span class="detail-label">Learn more about Plain Concepts ↗</span></a></div>
+          </div>
         </div>
-    </div>
-
-<!--/div> 
-
-<div class="parallax2"-->
-
-       
-
-<!--/div>
-        
-<!--div class="parallax2"-->
-
-        <div class="container wow slideInUp">
-        <div class="row justify-content-center" id="longP">
-            <div class="col-lg-6 align-self-center indexImage">
-                <div class="view overlay zoom">
-                     <img src="Media/Index_Assets/LongP.png" class="img-fluid hoverable" alt="KEXP Index Image">
-                    <a href="longProvincial.html"><div class="mask flex-center rgba-purple-strong takeOutCursor">
-                        <p class="overlayText white-text">Eat your takeout and <br>check out my case study</p>
-                    </div></a>
-                </div>
-               
-                
-            </div>
-            
-            <div class="col-lg-6 align-self-end">
-                 
-                <h1 class="display-2 longPText">LONG PROVINCIAL</h1>
-                
-                <h4 class="h4-responsive emph">UX RESEARCH &amp; DESIGN</h4>
-                
-               
-                <h3 class="h3-responsive indexD emph">Creating a seamless online pickup order experience for the customers</h3>
-                <!--a href="longProvincial.html"><h4 class="h4-responsive caseStudyLink">READ CASE STUDY</h4></a-->
-            </div>
         </div>
-    </div>
-    
-</div> <!--parallax end-->
-
-    
-<footer class="bottomFooter">
-    <div class="container">
-        <div class="row justify-content-center text-center footerNav">
-            <div class="col">
-                <a  href="index.html" class="activeFooterNav">MAIN</a>
-               
-                <a href="kexp.html">KEXP</a>
-                 <a  href="joe.html">JOE COFFEE</a>
-                <a  href="longProvincial.html">LONG PROVINCIAL</a>
-                <a  href="about.html" >ABOUT ME</a>
-            
-                <a href="mailto:leeclarefrances@gmail.com" target="_top" id="contact"> CONTACT </a>
-            </div>
-            
+        <div class="card-with-date">
+        <div class="card-date">2017 – 2019</div>
+        <div class="project-card">
+          <div class="card-visual card-visual-game"><img class="cover-fill" src="assets/pimplepopper_Cover.png" alt="Pimple Popper Game"></div>
+          <div class="card-body">
+            <div class="project-title">The Pimple Popper Game</div>
+            <div class="deliverable-tags"><span class="d-tag">iOS / Android</span><span class="d-tag">Unity 3D</span><span class="d-tag">Design + Dev</span></div>
+            <div class="metrics" style="margin-bottom:12px;"><div class="metric"><span class="metric-num">187K+</span><span class="metric-label">Downloads</span></div></div>
+            <button class="card-expand-btn" data-label-closed=" Eww, show me" data-label-open=" Okay, maybe that's enough"><span class="expand-arrow">▼</span> Eww, show me</button>
+            <div class="card-expanded"><div class="card-expanded-inner">
+              <div class="detail-block"><span class="detail-label">Gameplay</span><span class="detail-text">Designed and developed solo — from concept to App Store. 187K+ downloads across iOS and Android.</span></div>
+              <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;margin-top:4px;"><iframe src="https://www.youtube.com/embed/fPgzvlvZA5E?modestbranding=1&rel=0" style="position:absolute;inset:0;width:100%;height:100%;border:none;border-radius:10px;" allow="encrypted-media" allowfullscreen></iframe></div>
+            </div></div>
+          </div>
         </div>
-        
-        <!--div class="row justify-content-center text-center footerNav">
-            <div class="col-lg-8">
-   
-                
-                <a  class="resumeB"href="Media/IndexAssets/Clare_Lee_Resume.pdf" target="_blank">RESUME</a>
-                <a class="gitB" href="https://github.com/clareblue79/" target=”_blank”>GITHUB </a>
-                <a class="linkedInB" href="https://www.linkedin.com/in/clarefranceslee/" target=”_blank”>LINKEDIN </a>
-            
-            </div>
-        </div-->
-        
-
-    
+        </div>
+      </div>
     </div>
-   
-    </footer>
-    
+  </div>
+</section>
 
-</div> <!--Main end -->
-    
-    
-    <!-- JQuery -->
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous"></script>
+<div class="soft-divider"></div>
 
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="section-label" data-label="About" id="label-about"><span class="label-text"></span></div>
+    <div id="content-about">
+      <div class="about-grid">
+        <div class="readme-card reveal delay-1">
+          <div class="readme-tab"><span class="readme-tab-file">README.md</span></div>
+          <div class="readme-body">
+            <div class="readme-h1">Clare Lee <span class="version-badge">v3.1</span></div>
+            <div class="readme-tagline">UX Designer · <span class="human-egg">human<div class="human-egg-popover">or a carbon-based language model, a bio-computer, a simulated program — or just a designer who thinks too much</div></span></div>
+            <div class="readme-quick-links">
+              <a href="https://linkedin.com/in/clarefranceslee" class="readme-quick-link" target="_blank"><span>↗</span> LinkedIn</a>
+              <a href="https://clarefranceslee.com" class="readme-quick-link" target="_blank"><span>↗</span> Resume</a>
+            </div>
+            <div class="readme-divider"></div>
+            <p class="readme-intro">I'm Clare, a UX designer who has spent a lifetime bridging gaps. Between cultures. Between users and businesses. And now between AI and humans.</p>
+            <div class="version-header" id="versionHeader">
+              <span class="v-arrow open" id="vArrow">▶</span>
+              <span class="version-header-label">version history</span>
+              <div class="version-header-line"></div>
+            </div>
+            <div class="version-history open" id="versionHistory">
+              <div class="version-list">
+                <div class="version-row" data-emojis="🍼,👶,🧀,🐄"><div class="v-row-top"><span class="v-tag">v1.0.0</span><span class="v-city">Madison, WI.</span><span class="v-emojis"></span></div><span class="v-detail">Initial release.</span></div>
+                <div class="version-row" data-emojis="🇰🇷,🌸,⛩️,🍜"><div class="v-row-top"><span class="v-tag">v1.1 — v1.8</span><span class="v-city">Seoul & Tokyo.</span><span class="v-emojis"></span></div><span class="v-detail">Multilingual patches applied.</span></div>
+                <div class="version-row" data-emojis="📚,🎓,❄️,☃️"><div class="v-row-top"><span class="v-tag">v1.8 — v2.2</span><span class="v-city">Boston.</span><span class="v-emojis"></span></div><span class="v-detail">B.A. in Media Arts and Sciences. Interdisciplinary thinking package installed.</span></div>
+                <div class="version-row" data-emojis="☕,🌧️,🌲,🐱"><div class="v-row-top"><span class="v-tag">v2.3 — v2.7</span><span class="v-city">Seattle.</span><span class="v-emojis"></span></div><span class="v-detail">UX design module installed. Career: deployed. Acquired by Reginald Inc.</span></div>
+                <div class="version-row v-current" data-emojis="🗽,🍎,✨"><div class="v-row-top"><span class="v-tag">v3.1 ✦</span><span class="v-city">New York.</span><span class="v-emojis"></span></div><span class="v-detail">Running in production. Best version yet.</span></div>
+              </div>
+            </div>
+            <div class="readme-divider"></div>
+            <div class="hobbies-row">
+              <div class="hobby" data-photo="hobby-0">🧘 yoga<div class="hobby-tooltip">Hot yoga, practicing since 2018. Non-negotiable.</div></div>
+              <div class="hobby">🐱 Reginald (cat, CEO)<div class="hobby-tooltip hobby-tooltip--photo"><img src="assets/Reginald.jpeg" class="hobby-tooltip-img" alt="Reginald the cat"><span>He runs this operation.</span></div></div>
+              <div class="hobby" data-photo="hobby-2">🎨 gallery hopping<div class="hobby-tooltip">New York is a happy place to be for art lovers</div></div>
+              <div class="hobby" data-photo="hobby-3">🎬 film<div class="hobby-tooltip">Loved Project Hail Mary recently. Perhaps loved the book a little more. But overall, it was <em>'amaze amaze amaze'</em>.</div></div>
+              <div class="hobby">🤓 anime &amp; webtoons<div class="hobby-tooltip">Proud nerd</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar reveal delay-2">
+          <div class="photo-card" id="photoCard">
+            <div class="photo-placeholder" id="photoDefault" style="opacity:1;">
+              <img src="assets/profile.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" alt="Clare Lee">
+            </div>
+            <!-- Version photo overlays -->
+            <div class="version-photo" id="vphoto-0"><div class="version-photo-emoji">👶</div><div class="version-photo-label">v1.0.0 — Madison</div></div>
+            <div class="version-photo" id="vphoto-1"><div class="version-photo-emoji">🌸</div><div class="version-photo-label">v1.x — Seoul & Tokyo</div></div>
+            <div class="version-photo" id="vphoto-2"><div class="version-photo-emoji">🎓</div><div class="version-photo-label">v2.x — Boston</div></div>
+            <div class="version-photo" id="vphoto-3"><div class="version-photo-emoji">☕</div><div class="version-photo-label">v2.x — Seattle</div></div>
+            <div class="version-photo" id="vphoto-4"><div class="version-photo-emoji">🗽</div><div class="version-photo-label">v3.1 — New York</div></div>
+            <!-- Hobby photo overlays -->
+            <div class="version-photo" id="hobby-0"><div class="version-photo-emoji">🧘</div><div class="version-photo-label">Hot yoga since 2018</div></div>
+            <div class="version-photo" id="hobby-1"><img src="assets/Reginald.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" alt="Reginald the cat"></div>
+            <div class="version-photo" id="hobby-2"><div class="version-photo-emoji">🎨</div><div class="version-photo-label">Gallery hopping</div></div>
+            <div class="version-photo" id="hobby-3"><div class="version-photo-emoji">🎬</div><div class="version-photo-label">Film</div></div>
+          </div>
+        </div><!-- end sidebar -->
+      </div><!-- end about-grid -->
+    </div><!-- end content-about -->
+  </div><!-- end section-inner -->
+</section>
 
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</div><!-- end .page -->
 
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.10/js/mdb.min.js"></script>
-    
+<!-- FLOATING INPUT — always fixed, floats below hero text, eases to bottom on scroll -->
+<div class="hero-input-area" id="heroInputArea">
+  <div class="input-hover-zone" id="inputHoverZone">
+    <div class="chips-wrap" id="chipsWrap">
+      <a class="chip" id="chipWork" href="#work">See my work →</a>
+      <a class="chip" id="chipAbout" href="#about">About Clare →</a>
+    </div>
+    <div class="message-bar" id="messageBar">
+      <input class="msg-input" id="msgInput" type="text" placeholder="Or send me a message…" />
+      <button class="send-btn" id="sendBtn">
+        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      </button>
+    </div>
+    <div class="bar-disclaimer">✦ Clare is human. Results may exceed expectations.</div>
+  </div>
+</div>
 
-<script>
-    //initializing scrolling animation
-    new WOW().init();
-    
-    
-    //start at top on refresh
-$(document).ready(function(){
-    $(window).scrollTop(0);
-});
-    
-    //function to change the tab title when user goes away
-$(function() {
-	// Get page title
-  	var pageTitle = $("title").text();
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="modal-badge"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent);display:inline-block;margin-right:4px;"></span>Coming soon</div>
+    <div class="modal-title">clAIre is on her way.</div>
+    <div class="modal-sub">I'm building an AI version of me you can actually talk to. In the meantime, I read every message personally.</div>
+    <div class="modal-divider"></div>
+    <div class="modal-field"><label>Your message</label><textarea id="modalMessage" rows="3" placeholder="What's on your mind?"></textarea></div>
+    <div class="modal-field"><label>Your email</label><input id="modalEmail" type="email" placeholder="so I can write back" /></div>
+    <button class="modal-send" onclick="handleModalSend()">Send message →</button>
+  </div>
+</div>
 
-	// Change page title on blur
-	$(window).blur(function() {
-	  $("title").text("Please don't go...");
-        $("#favicon").attr("href","favicon/sad.ico");
-	});
-
-	// Change page title back on focus
-	$(window).focus(function() {
-	  $("title").text(pageTitle);
-        $("#favicon").attr("href","favicon/avocado.ico");
-	});
-});
-
-    
-window.onscroll = function() {scrollFunction()};
-
-    function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("myBtn2").style.display = "block";
-    } else {
-        document.getElementById("myBtn2").style.display = "none";
-    }
-    }
-    
-
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-        
-        $('body,html').animate({
-            scrollTop: 0
-        }, 800, function(){
-            window.location.hash=" ";
-        })
-        };
-    
-    </script>
-        
-
+<script src="script.js"></script>
 </body>
-
-    
-</html> <!-- end of file -->
-
+</html>
