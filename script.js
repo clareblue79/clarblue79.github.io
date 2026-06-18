@@ -204,31 +204,35 @@
   msgInput.addEventListener('blur', () => setTimeout(hideChips, 300));
   if (isMobile()) chipsWrap.classList.remove('hidden');
 
-  /* ---- KEYBOARD HANDLER (visualViewport — iOS Safari only reliable API) ---- */
+  /* ---- KEYBOARD HANDLER ---- */
   const inputBackdrop = document.getElementById('inputBackdrop');
   const inputGradient = document.getElementById('inputGradient');
   let keyboardOpen = false;
-  if (window.visualViewport) {
-    const onVVChange = () => {
-      const vv = window.visualViewport;
-      // kbHeight = screen height minus visible viewport height (keyboard takes the rest)
-      const kbHeight = Math.max(0, window.innerHeight - vv.height);
-      keyboardOpen = kbHeight > 100;
-      if (keyboardOpen) {
-        inputBackdrop.classList.add('keyboard-open');
-        if (inputGradient) inputGradient.classList.add('keyboard-open');
-        heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.4s cubic-bezier(0.16,1,0.3,1)';
-        heroInputArea.style.bottom = (kbHeight + 8) + 'px';
-      } else {
-        inputBackdrop.classList.remove('keyboard-open');
-        if (inputGradient) inputGradient.classList.remove('keyboard-open');
-        heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.5s cubic-bezier(0.22,1,0.36,1)';
-        setInputBottom();
-      }
-    };
-    window.visualViewport.addEventListener('resize', onVVChange);
-    window.visualViewport.addEventListener('scroll', onVVChange);
-  }
+
+  // On iOS, position:fixed tracks the visual viewport — so bottom:8px sits just above
+  // the keyboard without any height math. Use focus/blur instead of visualViewport resize
+  // (which gave wrong kbHeight relative to the visual viewport coordinate space).
+  msgInput.addEventListener('focusin', () => {
+    if (!isMobile()) return;
+    setTimeout(() => {
+      keyboardOpen = true;
+      inputBackdrop.classList.add('keyboard-open');
+      if (inputGradient) inputGradient.classList.add('keyboard-open');
+      heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.35s cubic-bezier(0.16,1,0.3,1)';
+      heroInputArea.style.bottom = '8px';
+    }, 50);
+  });
+
+  msgInput.addEventListener('blur', () => {
+    if (!isMobile()) return;
+    setTimeout(() => {
+      keyboardOpen = false;
+      inputBackdrop.classList.remove('keyboard-open');
+      if (inputGradient) inputGradient.classList.remove('keyboard-open');
+      heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.45s cubic-bezier(0.22,1,0.36,1)';
+      setInputBottom();
+    }, 100);
+  });
 
   window.addEventListener('scroll', () => {
     if (isProgrammaticScroll) endProgrammaticScroll();
