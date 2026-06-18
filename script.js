@@ -202,20 +202,23 @@
 
   /* ---- KEYBOARD HANDLER (visualViewport — iOS Safari only reliable API) ---- */
   const inputBackdrop = document.getElementById('inputBackdrop');
+  const inputGradient = document.getElementById('inputGradient');
   let keyboardOpen = false;
   if (window.visualViewport) {
     const onVVChange = () => {
       const vv = window.visualViewport;
-      // With overlays-content, window.innerHeight stays fixed; vv.height shrinks with keyboard
-      const kbHeight = Math.max(0, window.innerHeight - (vv.offsetTop + vv.height));
+      // kbHeight = screen height minus visible viewport height (keyboard takes the rest)
+      const kbHeight = Math.max(0, window.innerHeight - vv.height);
       keyboardOpen = kbHeight > 100;
       if (keyboardOpen) {
         inputBackdrop.classList.add('keyboard-open');
-        heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.2s ease';
+        if (inputGradient) inputGradient.classList.add('keyboard-open');
+        heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.4s cubic-bezier(0.16,1,0.3,1)';
         heroInputArea.style.bottom = (kbHeight + 8) + 'px';
       } else {
         inputBackdrop.classList.remove('keyboard-open');
-        heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.4s cubic-bezier(0.22,1,0.36,1)';
+        if (inputGradient) inputGradient.classList.remove('keyboard-open');
+        heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.5s cubic-bezier(0.22,1,0.36,1)';
         const pastHero = window.scrollY > window.innerHeight * 0.5;
         heroInputArea.style.bottom = pastHero
           ? (BOTTOM_SCROLLED + getSafeArea()) + 'px'
@@ -259,12 +262,14 @@
       }
     }
 
-    if (pastHero) {
-      heroInputArea.style.bottom = (BOTTOM_SCROLLED + getSafeArea()) + 'px';
-      if (!chipsAlive) chipsWrap.classList.add('hidden');
-    } else {
-      setInputBottom();
-      chipsWrap.classList.remove('hidden');
+    if (!keyboardOpen) {
+      if (pastHero) {
+        heroInputArea.style.bottom = (BOTTOM_SCROLLED + getSafeArea()) + 'px';
+        if (!chipsAlive) chipsWrap.classList.add('hidden');
+      } else {
+        setInputBottom();
+        chipsWrap.classList.remove('hidden');
+      }
     }
   });
 
