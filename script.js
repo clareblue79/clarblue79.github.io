@@ -204,21 +204,26 @@
   const inputBackdrop = document.getElementById('inputBackdrop');
   let keyboardOpen = false;
   if (window.visualViewport) {
-    window.visualViewport.addEventListener('resize', () => {
+    const onVVChange = () => {
       const vv = window.visualViewport;
-      const kbHeight = window.innerHeight - vv.height - (vv.offsetTop || 0);
-      keyboardOpen = kbHeight > 120;
+      // With overlays-content, window.innerHeight stays fixed; vv.height shrinks with keyboard
+      const kbHeight = Math.max(0, window.innerHeight - (vv.offsetTop + vv.height));
+      keyboardOpen = kbHeight > 100;
       if (keyboardOpen) {
         inputBackdrop.classList.add('keyboard-open');
+        heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.2s ease';
         heroInputArea.style.bottom = (kbHeight + 8) + 'px';
       } else {
         inputBackdrop.classList.remove('keyboard-open');
+        heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.4s cubic-bezier(0.22,1,0.36,1)';
         const pastHero = window.scrollY > window.innerHeight * 0.5;
         heroInputArea.style.bottom = pastHero
           ? (BOTTOM_SCROLLED + getSafeArea()) + 'px'
           : 'calc(28vh + ' + getSafeArea() + 'px)';
       }
-    });
+    };
+    window.visualViewport.addEventListener('resize', onVVChange);
+    window.visualViewport.addEventListener('scroll', onVVChange);
   }
 
   window.addEventListener('scroll', () => {
