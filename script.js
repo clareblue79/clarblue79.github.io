@@ -185,7 +185,11 @@
 
   function setInputBottom() {
     const sab = getSafeArea();
-    heroInputArea.style.bottom = 'calc(28vh + ' + sab + 'px)';
+    if (isMobile()) {
+      heroInputArea.style.bottom = (BOTTOM_SCROLLED + sab) + 'px';
+    } else {
+      heroInputArea.style.bottom = 'calc(28vh + ' + sab + 'px)';
+    }
   }
 
   function showChips() { chipsAlive = true; chipsWrap.classList.remove('hidden'); }
@@ -219,10 +223,7 @@
         inputBackdrop.classList.remove('keyboard-open');
         if (inputGradient) inputGradient.classList.remove('keyboard-open');
         heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.5s cubic-bezier(0.22,1,0.36,1)';
-        const pastHero = window.scrollY > window.innerHeight * 0.5;
-        heroInputArea.style.bottom = pastHero
-          ? (BOTTOM_SCROLLED + getSafeArea()) + 'px'
-          : 'calc(28vh + ' + getSafeArea() + 'px)';
+        setInputBottom();
       }
     };
     window.visualViewport.addEventListener('resize', onVVChange);
@@ -520,6 +521,15 @@
       if (btn) window.toggleExpand(btn);
     });
   });
+
+  /* ---- VIDEO AUTOPLAY ON SCROLL (helps iOS when video is below fold) ---- */
+  const videoPlayObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const v = entry.target;
+      if (entry.isIntersecting && v.paused) v.play().catch(() => {});
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.card-visual video[autoplay]').forEach(v => videoPlayObs.observe(v));
 
   /* ---- MOBILE VERSION STICKERS ---- */
   if (isMobile()) {
