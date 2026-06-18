@@ -196,17 +196,30 @@
 
   inputHoverZone.addEventListener('mouseenter', showChips);
   inputHoverZone.addEventListener('mouseleave', () => setTimeout(hideChips, 200));
-  msgInput.addEventListener('focus', () => {
-    showChips();
-    // On mobile, scroll bar into view after keyboard animates up
-    if (isMobile()) {
-      setTimeout(() => {
-        heroInputArea.scrollIntoView({behavior:'smooth', block:'end'});
-      }, 350);
-    }
-  });
+  msgInput.addEventListener('focus', showChips);
   msgInput.addEventListener('blur', () => setTimeout(hideChips, 300));
   if (isMobile()) chipsWrap.classList.remove('hidden');
+
+  /* ---- KEYBOARD HANDLER (visualViewport — iOS Safari only reliable API) ---- */
+  const inputBackdrop = document.getElementById('inputBackdrop');
+  let keyboardOpen = false;
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', () => {
+      const vv = window.visualViewport;
+      const kbHeight = window.innerHeight - vv.height - (vv.offsetTop || 0);
+      keyboardOpen = kbHeight > 120;
+      if (keyboardOpen) {
+        inputBackdrop.classList.add('keyboard-open');
+        heroInputArea.style.bottom = (kbHeight + 8) + 'px';
+      } else {
+        inputBackdrop.classList.remove('keyboard-open');
+        const pastHero = window.scrollY > window.innerHeight * 0.5;
+        heroInputArea.style.bottom = pastHero
+          ? (BOTTOM_SCROLLED + getSafeArea()) + 'px'
+          : 'calc(28vh + ' + getSafeArea() + 'px)';
+      }
+    });
+  }
 
   window.addEventListener('scroll', () => {
     if (isProgrammaticScroll) endProgrammaticScroll();
