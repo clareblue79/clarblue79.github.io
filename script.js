@@ -542,7 +542,15 @@
   });
 
   /* ---- TAB AWAY ---- */
-  document.addEventListener('visibilitychange', () => {    document.title = document.hidden ? "Don't go just yet." : 'Clare Lee — AI UX Designer';
+  const faviconEl = document.getElementById('faviconEl');
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      document.title = "Don't go just yet.";
+      if (faviconEl) faviconEl.href = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>😢</text></svg>";
+    } else {
+      document.title = 'Clare Lee — AI UX Designer';
+      if (faviconEl) faviconEl.href = 'data:,';
+    }
   });
 
 }); // end DOMContentLoaded
