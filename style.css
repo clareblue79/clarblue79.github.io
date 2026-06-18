@@ -116,9 +116,8 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
 }
 
 /* GRADIENT BACKDROP — always present at bottom */
-.input-gradient{position:fixed;bottom:0;left:0;right:0;height:calc(220px + env(safe-area-inset-bottom,0px));background:linear-gradient(to bottom,transparent 0%,rgba(250,249,247,0.88) 55%,var(--bg) 100%);pointer-events:none;z-index:98;transition:opacity 0.3s ease;}
-.input-gradient.keyboard-open{opacity:0;}
-/* Full-screen blur overlay — fades in when keyboard is open */
+.input-gradient{position:fixed;bottom:0;left:0;right:0;height:calc(220px + env(safe-area-inset-bottom,0px));background:linear-gradient(to bottom,transparent 0%,rgba(250,249,247,0.88) 55%,var(--bg) 100%);pointer-events:none;z-index:98;transition:background 0.3s ease,height 0.35s cubic-bezier(0.16,1,0.3,1),border-radius 0.3s ease;}
+.input-gradient.keyboard-open{height:160px;background:rgba(250,249,247,0.92);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-radius:20px 20px 0 0;}
 .input-backdrop{display:none;}
 
 
@@ -132,16 +131,6 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
   transition:opacity 0.6s ease, bottom 0.4s cubic-bezier(0.22,1,0.36,1);
 }
 .hero-input-area.show{opacity:1;pointer-events:auto;}
-/* When keyboard opens on mobile, the container itself becomes the frosted shelf */
-@media(max-width:640px){
-  .hero-input-area.keyboard-open{
-    background:rgba(250,249,247,0.92);
-    -webkit-backdrop-filter:blur(20px);
-    backdrop-filter:blur(20px);
-    padding-bottom:8px;
-    border-radius:20px 20px 0 0;
-  }
-}
 
 .input-hover-zone{width:100%;display:flex;flex-direction:column;align-items:center;gap:10px;padding:18px 0 0;margin-top:-18px;}
 

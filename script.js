@@ -215,7 +215,6 @@
     if (!isMobile()) return;
     setTimeout(() => {
       keyboardOpen = true;
-      heroInputArea.classList.add('keyboard-open');
       if (inputGradient) inputGradient.classList.add('keyboard-open');
       heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.35s cubic-bezier(0.16,1,0.3,1)';
       heroInputArea.style.bottom = '0px';
@@ -226,7 +225,6 @@
     if (!isMobile()) return;
     setTimeout(() => {
       keyboardOpen = false;
-      heroInputArea.classList.remove('keyboard-open');
       if (inputGradient) inputGradient.classList.remove('keyboard-open');
       heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.45s cubic-bezier(0.22,1,0.36,1)';
       setInputBottom();
@@ -532,7 +530,13 @@
       if (entry.isIntersecting && v.paused) v.play().catch(() => {});
     });
   }, { threshold: 0.2 });
-  document.querySelectorAll('.card-visual video[autoplay]').forEach(v => videoPlayObs.observe(v));
+  document.querySelectorAll('.card-visual video[autoplay]').forEach(v => {
+    // Hide until first frame plays so the black video placeholder never shows
+    v.style.opacity = '0';
+    v.style.transition = 'opacity 0.5s ease';
+    v.addEventListener('playing', () => { v.style.opacity = '1'; }, { once: true });
+    videoPlayObs.observe(v);
+  });
 
   /* ---- MOBILE VERSION STICKERS ---- */
   if (isMobile()) {
