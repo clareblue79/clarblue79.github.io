@@ -172,9 +172,20 @@
   }
 
   const BOTTOM_SCROLLED = 28;
+  const safeBottom = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sab') || '0') || 0;
+
+  function getSafeArea() {
+    const el = document.createElement('div');
+    el.style.cssText = 'position:fixed;bottom:env(safe-area-inset-bottom,0px);height:0;width:0;pointer-events:none;visibility:hidden;';
+    document.body.appendChild(el);
+    const val = window.innerHeight - el.getBoundingClientRect().top;
+    document.body.removeChild(el);
+    return Math.max(0, val);
+  }
 
   function setInputBottom() {
-    heroInputArea.style.bottom = '28vh';
+    const sab = getSafeArea();
+    heroInputArea.style.bottom = 'calc(28vh + ' + sab + 'px)';
   }
 
   function showChips() { chipsAlive = true; chipsWrap.classList.remove('hidden'); }
@@ -231,7 +242,7 @@
     }
 
     if (pastHero) {
-      heroInputArea.style.bottom = BOTTOM_SCROLLED + 'px';
+      heroInputArea.style.bottom = (BOTTOM_SCROLLED + getSafeArea()) + 'px';
       if (!chipsAlive) chipsWrap.classList.add('hidden');
     } else {
       setInputBottom();
