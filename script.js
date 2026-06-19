@@ -534,7 +534,10 @@
     // Hide until first frame plays so the black video placeholder never shows
     v.style.opacity = '0';
     v.style.transition = 'opacity 0.5s ease';
-    v.addEventListener('playing', () => { v.style.opacity = '1'; }, { once: true });
+    const showVideo = () => { v.style.opacity = '1'; };
+    v.addEventListener('playing', showVideo, { once: true });
+    // On desktop, autoplay may fire before the listener is attached — check immediately
+    if (!v.paused) showVideo();
     videoPlayObs.observe(v);
   });
 
@@ -600,7 +603,7 @@
       if (faviconEl) faviconEl.href = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>😢</text></svg>";
     } else {
       document.title = 'Clare Lee — AI UX Designer';
-      if (faviconEl) faviconEl.href = 'data:,';
+      if (faviconEl) faviconEl.href = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>😊</text></svg>";
     }
   });
 
