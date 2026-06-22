@@ -128,17 +128,16 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
   pointer-events:none;z-index:98;
   transition:background 0.3s ease,height 0.35s cubic-bezier(0.16,1,0.3,1),border-radius 0.3s ease;
 }
-/* keyboard-open: heavier frosted panel behind the bar */
+/* keyboard-open: same soft fade as resting, no panel/border-radius */
 .input-gradient.keyboard-open{
   height:calc(130px + env(safe-area-inset-bottom,0px));
   background:linear-gradient(to bottom,
     transparent 0%,
-    rgba(250,249,247,0.5) 28%,
-    rgba(250,249,247,0.96) 62%,
+    rgba(250,249,247,0.15) 30%,
+    rgba(250,249,247,0.6) 65%,
     transparent 100%
   );
-  -webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);
-  border-radius:28px 28px 0 0;
+  border-radius:0;
 }
 .input-backdrop{display:none;}
 
