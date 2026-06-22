@@ -213,11 +213,13 @@
       if (keyboardOpen) {
         inputBackdrop.classList.add('keyboard-open');
         if (inputGradient) inputGradient.classList.add('keyboard-open');
+        heroInputArea.classList.add('keyboard-open');
         heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.4s cubic-bezier(0.16,1,0.3,1)';
         heroInputArea.style.bottom = (kbHeight + 8) + 'px';
       } else {
         inputBackdrop.classList.remove('keyboard-open');
         if (inputGradient) inputGradient.classList.remove('keyboard-open');
+        heroInputArea.classList.remove('keyboard-open');
         heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.5s cubic-bezier(0.22,1,0.36,1)';
         const pastHero = window.scrollY > window.innerHeight * 0.5;
         heroInputArea.style.bottom = pastHero
