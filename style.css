@@ -121,8 +121,9 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
   height:calc(120px + env(safe-area-inset-bottom,0px));
   background:linear-gradient(to bottom,
     transparent 0%,
-    rgba(250,249,247,0.12) 40%,
-    rgba(250,249,247,0.55) 100%
+    rgba(250,249,247,0.12) 30%,
+    rgba(250,249,247,0.55) 65%,
+    transparent 100%
   );
   -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
   pointer-events:none;z-index:98;
@@ -135,7 +136,7 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
     transparent 0%,
     rgba(250,249,247,0.5) 28%,
     rgba(250,249,247,0.96) 62%,
-    rgba(250,249,247,0.98) 100%
+    transparent 100%
   );
   -webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);
   border-radius:28px 28px 0 0;
