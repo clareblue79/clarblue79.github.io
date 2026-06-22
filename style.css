@@ -115,29 +115,22 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
   100%{background-position:-150% 0;}
 }
 
-/* GRADIENT BACKDROP
-   100lvh = large viewport (no browser UI); 100dvh = dynamic (tracks browser UI).
-   bottom: calc(100dvh - 100lvh) pushes the element down by the browser-toolbar
-   height so it fills behind the toolbar. Height compensates to keep the visible
-   gradient the same size. When no toolbar: dvh=lvh so bottom:0, no change. */
+/* GRADIENT BACKDROP — soft frosted shadow, just enough to read the disclaimer */
 .input-gradient{
-  position:fixed;
-  left:0;right:0;
-  bottom:calc(100dvh - 100lvh);
-  height:calc(200px + env(safe-area-inset-bottom,0px) + 100lvh - 100dvh);
+  position:fixed;bottom:0;left:0;right:0;
+  height:calc(120px + env(safe-area-inset-bottom,0px));
   background:linear-gradient(to bottom,
     transparent 0%,
-    rgba(250,249,247,0.45) 25%,
-    var(--bg) 58%,
-    var(--bg) 100%
+    rgba(250,249,247,0.12) 40%,
+    rgba(250,249,247,0.55) 100%
   );
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
   pointer-events:none;z-index:98;
   transition:background 0.3s ease,height 0.35s cubic-bezier(0.16,1,0.3,1),border-radius 0.3s ease;
 }
-/* keyboard-open: toolbar hides with keyboard, so plain bottom:0; smooth blur fade */
+/* keyboard-open: heavier frosted panel behind the bar */
 .input-gradient.keyboard-open{
-  bottom:0;
-  height:calc(140px + env(safe-area-inset-bottom,0px));
+  height:calc(130px + env(safe-area-inset-bottom,0px));
   background:linear-gradient(to bottom,
     transparent 0%,
     rgba(250,249,247,0.5) 28%,
