@@ -5,8 +5,8 @@
   --grid:rgba(0,0,0,0.04);--line:rgba(0,0,0,0.07);
   --radius-pill:100px;--radius-xl:20px;--mono:'JetBrains Mono',monospace;
 }
-html{scroll-behavior:smooth;}
-body{font-family:'Quicksand',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;overflow-x:hidden;padding-bottom:140px;}
+html{scroll-behavior:smooth;background:var(--bg);}
+body{font-family:'Quicksand',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;overflow-x:hidden;padding-bottom:200px;}
 
 /* GRID OVERLAY — viewport only, doesn't extend behind footer */
 .grid-overlay{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
@@ -115,14 +115,38 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
   100%{background-position:-150% 0;}
 }
 
-/* GRADIENT BACKDROP — iOS 26 Safari fix: tiny fixed shell anchors at the true
-   screen bottom (including behind the address bar); inner gradient extends upward.
-   A tall fixed element gets "pushed" above the address bar in iOS 26; a 1px tall
-   fixed element does not, so bottom:0 here is the true screen bottom. */
-.input-gradient-shell{position:fixed;bottom:0;left:0;right:0;height:1px;z-index:98;pointer-events:none;overflow:visible;}
-.input-gradient{position:absolute;bottom:0;left:0;right:0;height:calc(400px + env(safe-area-inset-bottom,0px));background:linear-gradient(to bottom,transparent 0%,rgba(250,249,247,0.8) 20%,var(--bg) 45%,var(--bg) 100%);pointer-events:none;transition:background 0.3s ease,height 0.35s cubic-bezier(0.16,1,0.3,1),border-radius 0.3s ease;}
-/* keyboard-open: gradient fade at top (not a hard line) + frosted-glass blur */
-.input-gradient.keyboard-open{height:calc(220px + env(safe-area-inset-bottom,0px));background:linear-gradient(to bottom,transparent 0%,rgba(250,249,247,0.5) 22%,rgba(250,249,247,0.95) 55%,rgba(250,249,247,0.98) 100%);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);border-radius:28px 28px 0 0;}
+/* GRADIENT BACKDROP
+   100lvh = large viewport (no browser UI); 100dvh = dynamic (tracks browser UI).
+   bottom: calc(100dvh - 100lvh) pushes the element down by the browser-toolbar
+   height so it fills behind the toolbar. Height compensates to keep the visible
+   gradient the same size. When no toolbar: dvh=lvh so bottom:0, no change. */
+.input-gradient{
+  position:fixed;
+  left:0;right:0;
+  bottom:calc(100dvh - 100lvh);
+  height:calc(200px + env(safe-area-inset-bottom,0px) + 100lvh - 100dvh);
+  background:linear-gradient(to bottom,
+    transparent 0%,
+    rgba(250,249,247,0.45) 25%,
+    var(--bg) 58%,
+    var(--bg) 100%
+  );
+  pointer-events:none;z-index:98;
+  transition:background 0.3s ease,height 0.35s cubic-bezier(0.16,1,0.3,1),border-radius 0.3s ease;
+}
+/* keyboard-open: toolbar hides with keyboard, so plain bottom:0; smooth blur fade */
+.input-gradient.keyboard-open{
+  bottom:0;
+  height:calc(140px + env(safe-area-inset-bottom,0px));
+  background:linear-gradient(to bottom,
+    transparent 0%,
+    rgba(250,249,247,0.5) 28%,
+    rgba(250,249,247,0.96) 62%,
+    rgba(250,249,247,0.98) 100%
+  );
+  -webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);
+  border-radius:28px 28px 0 0;
+}
 .input-backdrop{display:none;}
 
 
