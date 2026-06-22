@@ -115,31 +115,41 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
   100%{background-position:-150% 0;}
 }
 
-/* GRADIENT BACKDROP — soft frosted shadow, just enough to read the disclaimer */
+/* GRADIENT BACKDROP — fades in above the chips, peaks behind message bar */
 .input-gradient{
   position:fixed;bottom:0;left:0;right:0;
-  height:calc(120px + env(safe-area-inset-bottom,0px));
+  height:calc(240px + env(safe-area-inset-bottom,0px));
   background:linear-gradient(to bottom,
     transparent 0%,
-    rgba(250,249,247,0.12) 30%,
+    rgba(250,249,247,0.25) 40%,
     rgba(250,249,247,0.55) 65%,
     transparent 100%
   );
   pointer-events:none;z-index:98;
-  transition:background 0.3s ease,height 0.35s cubic-bezier(0.16,1,0.3,1),border-radius 0.3s ease;
+  transition:background 0.3s ease,height 0.35s cubic-bezier(0.16,1,0.3,1);
 }
-/* keyboard-open: same soft fade as resting, no panel/border-radius */
 .input-gradient.keyboard-open{
-  height:calc(130px + env(safe-area-inset-bottom,0px));
+  height:calc(200px + env(safe-area-inset-bottom,0px));
   background:linear-gradient(to bottom,
     transparent 0%,
-    rgba(250,249,247,0.15) 30%,
-    rgba(250,249,247,0.6) 65%,
+    rgba(250,249,247,0.25) 40%,
+    rgba(250,249,247,0.55) 65%,
     transparent 100%
   );
-  border-radius:0;
 }
-.input-backdrop{display:none;}
+/* iOS bottom-chrome fill: 1px fixed anchor + inner overflows downward behind toolbar */
+.input-backdrop{
+  display:block;position:fixed;
+  bottom:0;left:0;right:0;
+  height:1px;overflow:visible;
+  pointer-events:none;z-index:96;
+}
+.input-backdrop::after{
+  content:'';display:block;
+  position:absolute;top:0;left:0;right:0;
+  height:200px;
+  background:var(--bg);
+}
 
 
 /* FLOATING INPUT — always fixed, bottom animated by JS via transition */
