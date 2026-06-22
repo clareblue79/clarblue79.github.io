@@ -216,6 +216,7 @@
     setTimeout(() => {
       keyboardOpen = true;
       if (inputGradient) inputGradient.classList.add('keyboard-open');
+      heroInputArea.classList.add('keyboard-active');
       heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.35s cubic-bezier(0.16,1,0.3,1)';
       heroInputArea.style.bottom = '0px';
     }, 50);
@@ -226,6 +227,7 @@
     setTimeout(() => {
       keyboardOpen = false;
       if (inputGradient) inputGradient.classList.remove('keyboard-open');
+      heroInputArea.classList.remove('keyboard-active');
       heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.45s cubic-bezier(0.22,1,0.36,1)';
       setInputBottom();
     }, 100);
