@@ -115,10 +115,12 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
   100%{background-position:-150% 0;}
 }
 
-/* GRADIENT BACKDROP — always present at bottom.
-   bottom:-100px extends the element behind the browser toolbar/keyboard gap.
-   Height is increased to compensate so the visible gradient reaches the same height. */
-.input-gradient{position:fixed;bottom:-100px;left:0;right:0;height:calc(400px + env(safe-area-inset-bottom,0px));background:linear-gradient(to bottom,transparent 0%,rgba(250,249,247,0.8) 20%,var(--bg) 45%,var(--bg) 100%);pointer-events:none;z-index:98;transition:background 0.3s ease,height 0.35s cubic-bezier(0.16,1,0.3,1),border-radius 0.3s ease;}
+/* GRADIENT BACKDROP — iOS 26 Safari fix: tiny fixed shell anchors at the true
+   screen bottom (including behind the address bar); inner gradient extends upward.
+   A tall fixed element gets "pushed" above the address bar in iOS 26; a 1px tall
+   fixed element does not, so bottom:0 here is the true screen bottom. */
+.input-gradient-shell{position:fixed;bottom:0;left:0;right:0;height:1px;z-index:98;pointer-events:none;overflow:visible;}
+.input-gradient{position:absolute;bottom:0;left:0;right:0;height:calc(400px + env(safe-area-inset-bottom,0px));background:linear-gradient(to bottom,transparent 0%,rgba(250,249,247,0.8) 20%,var(--bg) 45%,var(--bg) 100%);pointer-events:none;transition:background 0.3s ease,height 0.35s cubic-bezier(0.16,1,0.3,1),border-radius 0.3s ease;}
 /* keyboard-open: gradient fade at top (not a hard line) + frosted-glass blur */
 .input-gradient.keyboard-open{height:calc(220px + env(safe-area-inset-bottom,0px));background:linear-gradient(to bottom,transparent 0%,rgba(250,249,247,0.5) 22%,rgba(250,249,247,0.95) 55%,rgba(250,249,247,0.98) 100%);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);border-radius:28px 28px 0 0;}
 .input-backdrop{display:none;}
