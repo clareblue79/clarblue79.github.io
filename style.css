@@ -397,8 +397,8 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
 .hobby-tooltip--photo{padding:0;overflow:hidden;white-space:normal;}
 .hobby-tooltip--photo .hobby-tooltip-img{width:100%;height:140px;object-fit:cover;object-position:center top;display:block;border-radius:8px 8px 0 0;}
 @media(max-width:640px){
-  .hobby-tooltip.hobby-tooltip--photo{width:180px;max-width:180px;left:50%;transform:translateX(-50%);}
-  .hobby-tooltip.hobby-tooltip--photo .hobby-tooltip-img{height:260px;}
+  .hobby-tooltip.hobby-tooltip--photo{width:180px !important;max-width:180px !important;left:50%;transform:translateX(-50%);}
+  .hobby-tooltip.hobby-tooltip--photo .hobby-tooltip-img{height:260px !important;}
 }
 .hobby-tooltip--photo span{display:block;padding:7px 12px;font-size:12px;}
 

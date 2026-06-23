@@ -324,6 +324,9 @@
     navLogoLink.addEventListener('click', e => {
       e.preventDefault();
       startProgrammaticScroll();
+      // Ensure message bar stays visible during scroll-to-top
+      heroInputArea.classList.remove('scroll-hidden');
+      clearTimeout(scrollHideTimer);
       window.scrollTo({top: 0, behavior: 'smooth'});
       // Once scroll settles at top, hide nav
       const hideWhenTop = setInterval(() => {
@@ -334,7 +337,6 @@
           clearInterval(hideWhenTop);
         }
       }, 80);
-      // Safety: clear after 2s regardless
       setTimeout(() => clearInterval(hideWhenTop), 2000);
     });
   }
