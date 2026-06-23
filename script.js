@@ -639,10 +639,10 @@
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       document.title = "Don't go just yet.";
-      if (faviconEl) faviconEl.href = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>😢</text></svg>";
+      if (faviconEl) faviconEl.href = 'assets/favicon-dontgo-32.png';
     } else {
       document.title = 'Clare Lee - Designer';
-      if (faviconEl) faviconEl.href = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>😊</text></svg>";
+      if (faviconEl) faviconEl.href = 'assets/favicon-32.png';
     }
   });
 
