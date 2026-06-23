@@ -120,10 +120,8 @@
       heroTagline.classList.add('show');
       typeWriter(heroTagline, taglineText, 32, () => {
         heroWorkLine.classList.add('show');
-        setTimeout(() => {
-          setInputBottom();
-          heroInputArea.classList.add('show');
-        }, 600);
+        setInputBottom();
+        heroInputArea.classList.add('show');
       });
     }, 400);
   });
@@ -606,7 +604,7 @@
       document.title = "Don't go just yet.";
       if (faviconEl) faviconEl.href = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>😢</text></svg>";
     } else {
-      document.title = 'Clare Lee — AI UX Designer';
+      document.title = 'Clare Lee - Designer';
       if (faviconEl) faviconEl.href = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>😊</text></svg>";
     }
   });

@@ -11,7 +11,7 @@ body{font-family:'Quicksand',sans-serif;background:var(--bg);color:var(--ink);mi
 /* GRID OVERLAY — viewport only, doesn't extend behind footer */
 .grid-overlay{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
 /* Soft pastel glow sits on grid background */
-.grid-glow{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 50% 42%,rgba(196,176,240,0.2) 0%,rgba(168,196,240,0.12) 30%,rgba(168,216,192,0.06) 55%,transparent 75%);}
+.grid-glow{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 50% 38%,rgba(196,176,240,0.25) 0%,rgba(168,196,240,0.16) 25%,rgba(168,216,192,0.09) 45%,transparent 70%);}
 .page{position:relative;z-index:1;background:transparent;}
 
 /* Vertical lines — draw down first, slower */
