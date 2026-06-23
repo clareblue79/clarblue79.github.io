@@ -74,15 +74,10 @@
   function clamp(v,lo,hi) { return Math.max(lo,Math.min(hi,v)); }
 
   function positionName() {
-    // On mobile, keep hero-name as normal in-flow text — skip fixed animation
+    // On mobile, CSS handles layout — clear any inline styles from desktop and bail
     if (isMobile()) {
-      heroName.style.position = 'static';
-      heroName.style.transform = 'none';
-      heroName.style.fontSize = '';
-      heroName.style.top = '';
-      heroName.style.left = '';
-      heroName.style.opacity = heroName.classList.contains('show') ? '1' : '0';
-      if (navLogoName) navLogoName.style.opacity = '1'; // always visible in nav on mobile
+      heroName.removeAttribute('style');
+      if (navLogoName) navLogoName.style.opacity = '1';
       return;
     }
 
@@ -217,7 +212,6 @@
       if (inputGradient) inputGradient.classList.add('keyboard-open');
       if (keyboardGradient) keyboardGradient.classList.add('active');
       heroInputArea.classList.add('keyboard-active');
-      heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.35s cubic-bezier(0.16,1,0.3,1)';
       heroInputArea.style.bottom = '0px';
     }, 50);
   });
@@ -229,7 +223,6 @@
       if (inputGradient) inputGradient.classList.remove('keyboard-open');
       if (keyboardGradient) keyboardGradient.classList.remove('active');
       heroInputArea.classList.remove('keyboard-active');
-      heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.45s cubic-bezier(0.22,1,0.36,1)';
       setInputBottom();
     }, 100);
   });
@@ -269,13 +262,12 @@
 
     if (!keyboardOpen) {
       if (isMobile()) {
-        heroInputArea.style.transition = 'opacity 0.15s ease, bottom 0.4s cubic-bezier(0.22,1,0.36,1)';
-        heroInputArea.classList.remove('show');
+        // Hide smoothly while scrolling, show smoothly when paused
+        heroInputArea.classList.add('scroll-hidden');
         clearTimeout(scrollHideTimer);
         scrollHideTimer = setTimeout(() => {
-          heroInputArea.style.transition = 'opacity 0.3s ease, bottom 0.4s cubic-bezier(0.22,1,0.36,1)';
-          heroInputArea.classList.add('show');
-        }, 500);
+          heroInputArea.classList.remove('scroll-hidden');
+        }, 400);
       }
       if (pastHero) {
         heroInputArea.style.bottom = (BOTTOM_SCROLLED + getSafeArea()) + 'px';
