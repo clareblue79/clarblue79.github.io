@@ -122,7 +122,10 @@
       typeWriter(heroTagline, taglineText, typingSpeed, () => {
         heroWorkLine.classList.add('show');
         setInputBottom();
-        heroInputArea.classList.add('show');
+        // Let bottom settle before triggering the fade-up
+        requestAnimationFrame(() => {
+          heroInputArea.classList.add('show');
+        });
       });
     }, 400);
   });
