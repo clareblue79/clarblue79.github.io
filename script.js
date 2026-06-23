@@ -123,9 +123,9 @@
         setTimeout(() => {
           setInputBottom();
           heroInputArea.classList.add('show');
-        }, 500);
+        }, 600);
       });
-    }, 300);
+    }, 400);
   });
 
   function typeWriter(el, text, speed, cb) {
