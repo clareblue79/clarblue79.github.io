@@ -280,15 +280,12 @@
     if (!keyboardOpen) {
       if (isMobile() && !isProgrammaticScroll) {
         // Hide instantly while scrolling, show smoothly when paused
-        heroInputArea.style.transition = 'none';
-        heroInputArea.classList.add('scroll-hidden');
-        // Force reflow so transition:none takes effect immediately
-        heroInputArea.offsetHeight;
-        // Restore transition for the smooth reappear
-        heroInputArea.style.transition = '';
+        heroInputArea.style.opacity = '0';
+        heroInputArea.style.pointerEvents = 'none';
         clearTimeout(scrollHideTimer);
         scrollHideTimer = setTimeout(() => {
-          heroInputArea.classList.remove('scroll-hidden');
+          heroInputArea.style.opacity = '';
+          heroInputArea.style.pointerEvents = '';
         }, 200);
       }
       if (pastHero) {
@@ -330,7 +327,8 @@
       e.preventDefault();
       startProgrammaticScroll();
       // Ensure message bar stays visible during scroll-to-top
-      heroInputArea.classList.remove('scroll-hidden');
+      heroInputArea.style.opacity = '';
+      heroInputArea.style.pointerEvents = '';
       clearTimeout(scrollHideTimer);
       window.scrollTo({top: 0, behavior: 'smooth'});
       // Once scroll settles at top, hide nav
