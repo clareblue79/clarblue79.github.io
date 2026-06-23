@@ -228,7 +228,8 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
 .card-visual{width:100%;height:240px;display:flex;align-items:center;justify-content:center;border-bottom:0.5px solid var(--line);position:relative;overflow:hidden;}
 .card-visual-default{background:radial-gradient(ellipse at 60% 40%,#F5F0FF 0%,#EEF3FF 35%,#F2FAF5 65%,#FFF9F5 100%);}
 .card-visual-publisher{background:linear-gradient(135deg,#F0F0F4 0%,#EAEDF5 25%,#E8E6F0 50%,#EDE8F2 75%,#F2F0F6 100%);padding:16px 20px;}
-.card-visual-publisher .publisher-video{position:relative !important;width:auto !important;height:100% !important;max-width:100% !important;max-height:100% !important;object-fit:contain !important;border-radius:6px;box-shadow:none;border:none;background:transparent;}
+.card-visual-publisher .publisher-logo{position:relative !important;max-width:65% !important;max-height:60% !important;width:auto !important;height:auto !important;object-fit:contain !important;border:none;border-radius:0;box-shadow:0 4px 16px rgba(0,0,0,0.08);filter:drop-shadow(0 2px 8px rgba(0,0,0,0.06));animation:sheen-glow 4s ease-in-out infinite;}
+@keyframes sheen-glow{0%,100%{filter:drop-shadow(0 2px 8px rgba(0,0,0,0.06)) brightness(1);}50%{filter:drop-shadow(0 2px 16px rgba(120,100,200,0.15)) brightness(1.03);}}
 .card-visual-smb{background:linear-gradient(135deg,#FFF3E0 0%,#FEF0E8 25%,#FDF5F0 40%,#F5FAF5 60%,#FFF0F3 80%,#FFF8EC 100%);padding:0;}
 .card-visual-smb .smb-gif{position:relative !important;width:100% !important;height:100% !important;max-width:100% !important;max-height:100% !important;object-fit:cover !important;object-position:center 40% !important;border-radius:0;box-shadow:none;border:none;}
 .card-visual-game{background:linear-gradient(135deg,#F4EEF0 0%,#EDE4E8 100%);}
