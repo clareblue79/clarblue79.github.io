@@ -200,6 +200,7 @@
   /* ---- KEYBOARD HANDLER ---- */
   const inputGradient = document.getElementById('inputGradient');
   const keyboardGradient = document.getElementById('keyboardGradient');
+  const inputBackdrop = document.getElementById('inputBackdrop');
   let keyboardOpen = false;
   let scrollHideTimer = null;
 
@@ -209,6 +210,7 @@
       keyboardOpen = true;
       if (inputGradient) inputGradient.classList.add('keyboard-open');
       if (keyboardGradient) keyboardGradient.classList.add('active');
+      if (inputBackdrop) inputBackdrop.classList.add('active');
       heroInputArea.classList.add('keyboard-active');
       heroInputArea.style.bottom = '0px';
     }, 50);
@@ -220,6 +222,7 @@
       keyboardOpen = false;
       if (inputGradient) inputGradient.classList.remove('keyboard-open');
       if (keyboardGradient) keyboardGradient.classList.remove('active');
+      if (inputBackdrop) inputBackdrop.classList.remove('active');
       heroInputArea.classList.remove('keyboard-active');
       setInputBottom();
     }, 100);

@@ -134,13 +134,15 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
   opacity:0;transition:opacity 0.25s ease;
 }
 .keyboard-gradient.active{opacity:1;}
-/* iOS bottom-chrome fill: 1px fixed anchor + inner overflows downward behind toolbar */
+/* iOS bottom-chrome fill: only visible when keyboard is open to prevent grey flash on dismiss */
 .input-backdrop{
   display:block;position:fixed;
   bottom:0;left:0;right:0;
   height:1px;overflow:visible;
   pointer-events:none;z-index:96;
+  opacity:0;transition:opacity 0.25s ease;
 }
+.input-backdrop.active{opacity:1;}
 .input-backdrop::after{
   content:'';display:block;
   position:absolute;top:0;left:0;right:0;
