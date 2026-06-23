@@ -127,12 +127,12 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
     transparent 100%
   );
   pointer-events:none;z-index:98;
-  transition:height 0.35s cubic-bezier(0.16,1,0.3,1);
+  transition:opacity 0.25s ease;
 }
-/* When keyboard panel is active, expand to full viewport — cream fades in from bottom */
-.input-gradient.keyboard-open{
-  opacity:1;
-  height:50vh;
+.input-gradient.keyboard-open{opacity:0;}
+/* Separate element for keyboard-open cream fill — only opacity animated, no height/bg changes */
+.keyboard-gradient{
+  position:fixed;bottom:0;left:0;right:0;height:50vh;
   background:linear-gradient(to bottom,
     transparent 0%,
     transparent 30%,
@@ -140,7 +140,10 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
     rgba(250,249,247,1) 62%,
     rgba(250,249,247,1) 100%
   );
+  pointer-events:none;z-index:97;
+  opacity:0;transition:opacity 0.25s ease;
 }
+.keyboard-gradient.active{opacity:1;}
 /* iOS bottom-chrome fill: 1px fixed anchor + inner overflows downward behind toolbar */
 .input-backdrop{
   display:block;position:fixed;

@@ -206,16 +206,16 @@
 
   /* ---- KEYBOARD HANDLER ---- */
   const inputGradient = document.getElementById('inputGradient');
+  const keyboardGradient = document.getElementById('keyboardGradient');
   let keyboardOpen = false;
+  let scrollHideTimer = null;
 
-  // On iOS, position:fixed tracks the visual viewport. Setting bottom:0 places the
-  // heroInputArea flush against the top of the keyboard. Its backdrop-filter then blurs
-  // only the content behind the bar — not the full screen.
   msgInput.addEventListener('focusin', () => {
     if (!isMobile()) return;
     setTimeout(() => {
       keyboardOpen = true;
       if (inputGradient) inputGradient.classList.add('keyboard-open');
+      if (keyboardGradient) keyboardGradient.classList.add('active');
       heroInputArea.classList.add('keyboard-active');
       heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.35s cubic-bezier(0.16,1,0.3,1)';
       heroInputArea.style.bottom = '0px';
@@ -227,6 +227,7 @@
     setTimeout(() => {
       keyboardOpen = false;
       if (inputGradient) inputGradient.classList.remove('keyboard-open');
+      if (keyboardGradient) keyboardGradient.classList.remove('active');
       heroInputArea.classList.remove('keyboard-active');
       heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.45s cubic-bezier(0.22,1,0.36,1)';
       setInputBottom();
@@ -267,6 +268,15 @@
     }
 
     if (!keyboardOpen) {
+      if (isMobile()) {
+        heroInputArea.style.transition = 'opacity 0.15s ease, bottom 0.4s cubic-bezier(0.22,1,0.36,1)';
+        heroInputArea.classList.remove('show');
+        clearTimeout(scrollHideTimer);
+        scrollHideTimer = setTimeout(() => {
+          heroInputArea.style.transition = 'opacity 0.3s ease, bottom 0.4s cubic-bezier(0.22,1,0.36,1)';
+          heroInputArea.classList.add('show');
+        }, 500);
+      }
       if (pastHero) {
         heroInputArea.style.bottom = (BOTTOM_SCROLLED + getSafeArea()) + 'px';
         if (!chipsAlive) chipsWrap.classList.add('hidden');
