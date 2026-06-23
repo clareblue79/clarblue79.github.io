@@ -382,8 +382,8 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
   .hobby-tooltip{max-width:calc(100vw - 48px);width:calc(100vw - 48px);left:0;transform:none;right:auto;}
   .hobby-tooltip.align-right{left:0;right:auto;transform:none;}
   .hobby-tooltip.align-left{left:0;transform:none;}
-  .hobby-tooltip--photo{width:200px;max-width:200px;}
-  .hobby-tooltip--photo .hobby-tooltip-img{height:240px;object-position:center top;}
+  .hobby-tooltip.hobby-tooltip--photo{width:180px;max-width:180px;left:50%;transform:translateX(-50%);}
+  .hobby-tooltip--photo .hobby-tooltip-img{height:260px;object-fit:cover;object-position:center top;}
 }
 /* Center aligned (default) */
 .hobby-tooltip{left:50%;transform:translateX(-50%);}
