@@ -554,23 +554,23 @@
     });
   });
 
-  /* ---- VIDEO AUTOPLAY ON SCROLL (helps iOS when video is below fold) ---- */
-  const videoPlayObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const v = entry.target;
-      if (entry.isIntersecting && v.paused) v.play().catch(() => {});
+  /* ---- VIDEO AUTOPLAY ON SCROLL (desktop only) ---- */
+  if (!isMobile()) {
+    const videoPlayObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const v = entry.target;
+        if (entry.isIntersecting && v.paused) v.play().catch(() => {});
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.card-visual video[autoplay]').forEach(v => {
+      v.style.opacity = '0';
+      v.style.transition = 'opacity 0.5s ease';
+      const showVideo = () => { v.style.opacity = '1'; };
+      v.addEventListener('playing', showVideo, { once: true });
+      if (!v.paused) showVideo();
+      videoPlayObs.observe(v);
     });
-  }, { threshold: 0.2 });
-  document.querySelectorAll('.card-visual video[autoplay]').forEach(v => {
-    // Hide until first frame plays so the black video placeholder never shows
-    v.style.opacity = '0';
-    v.style.transition = 'opacity 0.5s ease';
-    const showVideo = () => { v.style.opacity = '1'; };
-    v.addEventListener('playing', showVideo, { once: true });
-    // On desktop, autoplay may fire before the listener is attached — check immediately
-    if (!v.paused) showVideo();
-    videoPlayObs.observe(v);
-  });
+  }
 
   /* ---- MOBILE VERSION STICKERS ---- */
   if (isMobile()) {
