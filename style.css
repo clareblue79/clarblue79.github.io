@@ -234,6 +234,7 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
 .card-visual-icon span{font-size:28px;opacity:0.25;}
 .card-visual-icon p{font-family:var(--mono);font-size:9px;color:var(--ink-muted);letter-spacing:0.06em;opacity:0.5;}
 .card-visual img{max-width:75%;max-height:75%;width:auto;height:auto;object-fit:contain;display:block;border-radius:0;box-shadow:none;}
+.card-visual img.mobile-only{display:none;}
 .card-visual img.logo-fill{width:58% !important;height:auto !important;max-width:none !important;max-height:60% !important;}
 .card-visual img.cover-fill{position:absolute;inset:0;width:100% !important;height:100% !important;object-fit:cover;object-position:center;max-width:none !important;max-height:none !important;}
 .card-visual video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block;background:transparent;}
