@@ -521,25 +521,6 @@
 
 
   /* ---- CARD CLICK TO EXPAND ---- */
-  function animateMetrics(card) {
-    card.querySelectorAll('.metric-num[data-target]').forEach(el => {
-      const target = el.getAttribute('data-target');
-      const suffix = el.getAttribute('data-suffix') || '';
-      const isFloat = target.includes('.');
-      const num = parseFloat(target);
-      const duration = 900;
-      const start = performance.now();
-      function update(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 3);
-        el.textContent = (isFloat ? (num * ease).toFixed(2) : Math.round(num * ease)) + suffix;
-        if (progress < 1) requestAnimationFrame(update);
-      }
-      requestAnimationFrame(update);
-    });
-  }
-
   window.toggleExpand = function(btn) {
     const expanded = btn.nextElementSibling;
     const arrow = btn.querySelector('.expand-arrow');
@@ -549,7 +530,6 @@
     const closedLabel = btn.dataset.labelClosed || ' More details';
     const openLabel = btn.dataset.labelOpen || ' Less details';
     btn.childNodes[1].textContent = isOpen ? closedLabel : openLabel;
-    if (!isOpen) animateMetrics(btn.closest('.project-card'));
   };
 
   document.querySelectorAll('.project-card').forEach(card => {
@@ -569,11 +549,6 @@
       });
     }, { threshold: 0.2 });
     document.querySelectorAll('.card-visual video[autoplay]').forEach(v => {
-      v.style.opacity = '0';
-      v.style.transition = 'opacity 0.5s ease';
-      const showVideo = () => { v.style.opacity = '1'; };
-      v.addEventListener('playing', showVideo, { once: true });
-      if (!v.paused) showVideo();
       videoPlayObs.observe(v);
     });
   }
