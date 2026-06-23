@@ -227,7 +227,8 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
 .card-with-date>.project-card{max-width:100%;margin-left:0;flex:1;min-width:0;}
 .card-visual{width:100%;height:240px;display:flex;align-items:center;justify-content:center;border-bottom:0.5px solid var(--line);position:relative;overflow:hidden;}
 .card-visual-default{background:radial-gradient(ellipse at 60% 40%,#F5F0FF 0%,#EEF3FF 35%,#F2FAF5 65%,#FFF9F5 100%);}
-.card-visual-smb{background:linear-gradient(135deg,#FFF3E0 0%,#FEF0E8 25%,#FDF5F0 40%,#F5FAF5 60%,#FFF0F3 80%,#FFF8EC 100%);}
+.card-visual-smb{background:linear-gradient(135deg,#FFF3E0 0%,#FEF0E8 25%,#FDF5F0 40%,#F5FAF5 60%,#FFF0F3 80%,#FFF8EC 100%);padding:20px 24px;display:flex;align-items:center;justify-content:center;}
+.card-visual-smb video{border-radius:6px;box-shadow:0 2px 12px rgba(0,0,0,0.1);border:none;max-height:100%;}
 .card-visual-game{background:linear-gradient(135deg,#F4EEF0 0%,#EDE4E8 100%);}
 .card-visual-grid{position:absolute;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;}
 .card-visual-icon{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:6px;}
