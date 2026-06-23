@@ -185,17 +185,29 @@
     }
   }
 
-  function showChips() { chipsAlive = true; chipsWrap.classList.remove('hidden'); }
+  function showChips() {
+    chipsAlive = true;
+    chipsWrap.classList.remove('hidden');
+    if (isMobile()) chipsWrap.classList.add('mobile-visible');
+  }
   function hideChips() {
     chipsAlive = false;
-    if (!isMobile() && window.scrollY > 60) chipsWrap.classList.add('hidden');
+    if (isMobile()) {
+      // On mobile, only show chips at hero or when input focused
+      if (window.scrollY > window.innerHeight * 0.5) {
+        chipsWrap.classList.remove('mobile-visible');
+      }
+    } else if (window.scrollY > 60) {
+      chipsWrap.classList.add('hidden');
+    }
   }
 
   inputHoverZone.addEventListener('mouseenter', showChips);
   inputHoverZone.addEventListener('mouseleave', () => setTimeout(hideChips, 200));
   msgInput.addEventListener('focus', showChips);
   msgInput.addEventListener('blur', () => setTimeout(hideChips, 300));
-  if (isMobile()) chipsWrap.classList.remove('hidden');
+  // On mobile, show chips initially (hero visible)
+  if (isMobile()) { chipsWrap.classList.remove('hidden'); chipsWrap.classList.add('mobile-visible'); }
 
   /* ---- KEYBOARD HANDLER ---- */
   const inputGradient = document.getElementById('inputGradient');
@@ -272,10 +284,18 @@
       }
       if (pastHero) {
         heroInputArea.style.bottom = (BOTTOM_SCROLLED + getSafeArea()) + 'px';
-        if (!chipsAlive) chipsWrap.classList.add('hidden');
+        if (isMobile()) {
+          chipsWrap.classList.remove('mobile-visible');
+        } else if (!chipsAlive) {
+          chipsWrap.classList.add('hidden');
+        }
       } else {
         setInputBottom();
-        chipsWrap.classList.remove('hidden');
+        if (isMobile()) {
+          chipsWrap.classList.add('mobile-visible');
+        } else {
+          chipsWrap.classList.remove('hidden');
+        }
       }
     }
   });

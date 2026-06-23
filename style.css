@@ -469,6 +469,13 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
     text-align:center;
   }
   .hero-name-spacer{display:none;}
+  /* Hide gradient overlays on mobile to prevent grey box after keyboard dismiss */
+  .input-gradient{display:none;}
+  .keyboard-gradient{display:none;}
+  .input-backdrop{display:none;}
+  /* Chips: hidden by default on mobile, shown via JS */
+  .chips-wrap{opacity:0;transform:translateY(6px);pointer-events:none;transition:opacity 0.3s ease,transform 0.3s ease;}
+  .chips-wrap.mobile-visible{opacity:1;transform:translateY(0);pointer-events:auto;}
   /* Message bar: smooth hide/show on scroll */
   .hero-input-area{
     transition:opacity 0.35s ease, transform 0.35s ease, bottom 0.4s cubic-bezier(0.22,1,0.36,1);
