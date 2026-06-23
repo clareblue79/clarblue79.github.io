@@ -451,6 +451,7 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
   .hero{padding:18vh 24px 120px;}
   .section{padding:60px 24px;}
   .soft-divider{margin:0 24px;}
+  body{padding-bottom:80px;}
   .about-grid{grid-template-columns:1fr;display:flex;flex-direction:column-reverse;gap:20px;}
   .sidebar{position:static;align-self:auto;}
   /* Taller photo so face is visible */
@@ -460,7 +461,7 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
   .card-date{padding-top:10px;}
   .message-bubble{max-width:88%;}
   .mobile-only{display:block;}
-  .desktop-only{display:none;}
+  .desktop-only{display:none !important;}
   /* Prevent zoom on input focus — font-size must be ≥16px */
   .msg-input{font-size:16px;}
   /* Hero name: in-flow on mobile, not fixed */
@@ -501,4 +502,6 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
   .hero-input-area.keyboard-active{
     transition:opacity 0.6s ease, bottom 0.35s cubic-bezier(0.16,1,0.3,1);
   }
+  /* Reduce heavy shadow on mobile to prevent grey box behind Safari toolbar */
+  .message-bar:focus-within{box-shadow:0 4px 16px rgba(0,0,0,0.10),0 1px 0 rgba(255,255,255,0.9);}
 }
