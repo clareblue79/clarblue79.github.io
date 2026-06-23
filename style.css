@@ -476,9 +476,17 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
   /* Chips: hidden by default on mobile, shown via JS */
   .chips-wrap{opacity:0;transform:translateY(6px);pointer-events:none;transition:opacity 0.3s ease,transform 0.3s ease;}
   .chips-wrap.mobile-visible{opacity:1;transform:translateY(0);pointer-events:auto;}
-  /* Message bar: smooth hide/show on scroll */
+  /* Message bar: smoother fade on mobile */
   .hero-input-area{
-    transition:opacity 0.35s ease, transform 0.35s ease, bottom 0.4s cubic-bezier(0.22,1,0.36,1);
+    padding:0 24px 0;
+    background:transparent;
+    transition:opacity 0.5s cubic-bezier(0.25,1,0.5,1), transform 0.5s cubic-bezier(0.25,1,0.5,1), bottom 0.4s cubic-bezier(0.22,1,0.36,1);
+  }
+  .hero-input-area.show{
+    transition:opacity 1.4s cubic-bezier(0.25,1,0.5,1), transform 0.5s cubic-bezier(0.25,1,0.5,1), bottom 0.4s cubic-bezier(0.22,1,0.36,1);
+  }
+  .hero-work-line{
+    transition:opacity 1.4s cubic-bezier(0.25,1,0.5,1),transform 1.4s cubic-bezier(0.25,1,0.5,1);
   }
   .hero-input-area.scroll-hidden{
     opacity:0;

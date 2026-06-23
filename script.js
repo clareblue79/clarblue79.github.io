@@ -118,7 +118,8 @@
     // After grid completes, start tagline and the rest of the sequence
     setTimeout(() => {
       heroTagline.classList.add('show');
-      typeWriter(heroTagline, taglineText, 32, () => {
+      const typingSpeed = isMobile() ? 32 : 45;
+      typeWriter(heroTagline, taglineText, typingSpeed, () => {
         heroWorkLine.classList.add('show');
         setInputBottom();
         heroInputArea.classList.add('show');
@@ -305,11 +306,13 @@
   document.getElementById('chipWork').addEventListener('click', e => {
     e.preventDefault();
     startProgrammaticScroll();
+    if (isMobile()) { chipsWrap.classList.remove('mobile-visible'); msgInput.blur(); }
     document.getElementById('work').scrollIntoView({behavior:'smooth'});
   });
   document.getElementById('chipAbout').addEventListener('click', e => {
     e.preventDefault();
     startProgrammaticScroll();
+    if (isMobile()) { chipsWrap.classList.remove('mobile-visible'); msgInput.blur(); }
     document.getElementById('about').scrollIntoView({behavior:'smooth'});
   });
 
