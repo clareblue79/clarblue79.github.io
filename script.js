@@ -278,8 +278,8 @@
     }
 
     if (!keyboardOpen) {
-      if (isMobile() && !isProgrammaticScroll) {
-        // Instantly hide on scroll
+      if (isMobile()) {
+        // Instantly hide on scroll (both manual and button-induced)
         heroInputArea.style.transition = 'none';
         heroInputArea.style.opacity = '0';
         heroInputArea.style.pointerEvents = 'none';
@@ -290,7 +290,7 @@
           heroInputArea.style.opacity = '1';
           heroInputArea.style.pointerEvents = '';
           setTimeout(() => { heroInputArea.style.transition = ''; }, 550);
-        }, 500);
+        }, 400);
       }
       if (pastHero) {
         heroInputArea.style.bottom = (BOTTOM_SCROLLED + getSafeArea()) + 'px';
@@ -330,12 +330,7 @@
     navLogoLink.addEventListener('click', e => {
       e.preventDefault();
       startProgrammaticScroll();
-      // Ensure message bar fades in smoothly during scroll-to-top
-      heroInputArea.style.transition = 'opacity 0.5s cubic-bezier(0.25,1,0.5,1)';
-      heroInputArea.style.opacity = '1';
-      heroInputArea.style.pointerEvents = '';
       clearTimeout(scrollHideTimer);
-      setTimeout(() => { heroInputArea.style.transition = ''; }, 550);
       window.scrollTo({top: 0, behavior: 'smooth'});
       // Once scroll settles at top, hide nav
       const hideWhenTop = setInterval(() => {
