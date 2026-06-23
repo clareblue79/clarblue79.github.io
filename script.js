@@ -279,13 +279,17 @@
 
     if (!keyboardOpen) {
       if (isMobile() && !isProgrammaticScroll) {
-        // Hide instantly while scrolling, show smoothly when paused
+        // Instantly hide on scroll, quick fade-in when scrolling stops
+        heroInputArea.style.transition = 'none';
         heroInputArea.style.opacity = '0';
         heroInputArea.style.pointerEvents = 'none';
         clearTimeout(scrollHideTimer);
         scrollHideTimer = setTimeout(() => {
-          heroInputArea.style.opacity = '';
+          heroInputArea.style.transition = 'opacity 0.25s ease';
+          heroInputArea.style.opacity = '1';
           heroInputArea.style.pointerEvents = '';
+          // Clean up inline styles after fade-in completes
+          setTimeout(() => { heroInputArea.style.transition = ''; }, 300);
         }, 200);
       }
       if (pastHero) {
@@ -327,9 +331,11 @@
       e.preventDefault();
       startProgrammaticScroll();
       // Ensure message bar stays visible during scroll-to-top
-      heroInputArea.style.opacity = '';
+      heroInputArea.style.transition = 'none';
+      heroInputArea.style.opacity = '1';
       heroInputArea.style.pointerEvents = '';
       clearTimeout(scrollHideTimer);
+      setTimeout(() => { heroInputArea.style.transition = ''; }, 50);
       window.scrollTo({top: 0, behavior: 'smooth'});
       // Once scroll settles at top, hide nav
       const hideWhenTop = setInterval(() => {
