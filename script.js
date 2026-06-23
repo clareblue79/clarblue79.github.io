@@ -279,8 +279,13 @@
 
     if (!keyboardOpen) {
       if (isMobile() && !isProgrammaticScroll) {
-        // Hide smoothly while scrolling, show smoothly when paused
+        // Hide instantly while scrolling, show smoothly when paused
+        heroInputArea.style.transition = 'none';
         heroInputArea.classList.add('scroll-hidden');
+        // Force reflow so transition:none takes effect immediately
+        heroInputArea.offsetHeight;
+        // Restore transition for the smooth reappear
+        heroInputArea.style.transition = '';
         clearTimeout(scrollHideTimer);
         scrollHideTimer = setTimeout(() => {
           heroInputArea.classList.remove('scroll-hidden');
