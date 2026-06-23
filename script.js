@@ -593,38 +593,40 @@
   const va = document.getElementById('vArrow');
   document.getElementById('versionHeader').addEventListener('click', () => { vh.classList.toggle('open'); va.classList.toggle('open'); });
 
-  /* ---- LINK PREVIEW POPOVER ---- */
-  const previewEl = document.createElement('div');
-  previewEl.className = 'link-preview';
-  previewEl.innerHTML = '<img id="previewImg" src="" alt=""><div class="link-preview-label" id="previewCaption"></div>';
-  document.body.appendChild(previewEl);
-  const previewImg = document.getElementById('previewImg');
-  const previewCaption = document.getElementById('previewCaption');
-  let previewHideTimer;
-  let previewShowTimer;
+  /* ---- LINK PREVIEW POPOVER (desktop only) ---- */
+  if (!isMobile()) {
+    const previewEl = document.createElement('div');
+    previewEl.className = 'link-preview';
+    previewEl.innerHTML = '<img id="previewImg" src="" alt=""><div class="link-preview-label" id="previewCaption"></div>';
+    document.body.appendChild(previewEl);
+    const previewImg = document.getElementById('previewImg');
+    const previewCaption = document.getElementById('previewCaption');
+    let previewHideTimer;
+    let previewShowTimer;
 
-  document.querySelectorAll('.detail-label-link[data-preview]').forEach(link => {
-    link.addEventListener('mouseenter', (e) => {
-      clearTimeout(previewHideTimer);
-      clearTimeout(previewShowTimer);
-      previewShowTimer = setTimeout(() => {
-        previewImg.src = link.dataset.preview;
-        previewCaption.textContent = link.dataset.caption || link.querySelector('.detail-label').textContent.replace('↗','').trim();
+    document.querySelectorAll('.detail-label-link[data-preview]').forEach(link => {
+      link.addEventListener('mouseenter', (e) => {
+        clearTimeout(previewHideTimer);
+        clearTimeout(previewShowTimer);
+        previewShowTimer = setTimeout(() => {
+          previewImg.src = link.dataset.preview;
+          previewCaption.textContent = link.dataset.caption || link.querySelector('.detail-label').textContent.replace('↗','').trim();
+          previewEl.style.left = (e.clientX + 18) + 'px';
+          previewEl.style.top = (e.clientY - 90) + 'px';
+          previewEl.classList.add('visible');
+        }, 120);
+      });
+      link.addEventListener('mousemove', (e) => {
+        if (!previewEl.classList.contains('visible')) return;
         previewEl.style.left = (e.clientX + 18) + 'px';
-        previewEl.style.top = (e.clientY - 90) + 'px';
-        previewEl.classList.add('visible');
-      }, 120);
+        previewEl.style.top = Math.max(10, e.clientY - 90) + 'px';
+      });
+      link.addEventListener('mouseleave', () => {
+        clearTimeout(previewShowTimer);
+        previewHideTimer = setTimeout(() => previewEl.classList.remove('visible'), 120);
+      });
     });
-    link.addEventListener('mousemove', (e) => {
-      if (!previewEl.classList.contains('visible')) return;
-      previewEl.style.left = (e.clientX + 18) + 'px';
-      previewEl.style.top = Math.max(10, e.clientY - 90) + 'px';
-    });
-    link.addEventListener('mouseleave', () => {
-      clearTimeout(previewShowTimer);
-      previewHideTimer = setTimeout(() => previewEl.classList.remove('visible'), 120);
-    });
-  });
+  }
 
   /* ---- TAB AWAY ---- */
   const faviconEl = document.getElementById('faviconEl');
