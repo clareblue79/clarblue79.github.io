@@ -397,8 +397,8 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
 .hobby-tooltip--photo{padding:0;overflow:hidden;white-space:normal;}
 .hobby-tooltip--photo .hobby-tooltip-img{width:100%;height:140px;object-fit:cover;object-position:center top;display:block;border-radius:8px 8px 0 0;}
 @media(max-width:640px){
-  .hobby-tooltip.hobby-tooltip--photo{width:180px !important;max-width:180px !important;left:50%;transform:translateX(-50%);}
-  .hobby-tooltip.hobby-tooltip--photo .hobby-tooltip-img{height:260px !important;}
+  .hobby-tooltip.hobby-tooltip--photo{width:180px !important;max-width:180px !important;min-width:180px !important;left:50% !important;transform:translateX(-50%) !important;right:auto !important;}
+  .hobby-tooltip.hobby-tooltip--photo .hobby-tooltip-img{width:180px !important;height:260px !important;object-fit:cover;object-position:center top;}
 }
 .hobby-tooltip--photo span{display:block;padding:7px 12px;font-size:12px;}
 
@@ -503,6 +503,7 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
     opacity:0;
     transform:translateX(-50%) translateY(12px);
     pointer-events:none;
+    transition:opacity 0.3s ease, transform 0.3s ease;
   }
   .hero-input-area.keyboard-active{
     transition:opacity 0.6s ease, bottom 0.35s cubic-bezier(0.16,1,0.3,1);
