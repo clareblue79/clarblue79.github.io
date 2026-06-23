@@ -278,7 +278,7 @@
     }
 
     if (!keyboardOpen) {
-      if (isMobile()) {
+      if (isMobile() && !isProgrammaticScroll) {
         // Hide smoothly while scrolling, show smoothly when paused
         heroInputArea.classList.add('scroll-hidden');
         clearTimeout(scrollHideTimer);
