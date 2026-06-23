@@ -132,8 +132,7 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
 /* When keyboard panel is active, expand to full viewport — cream fades in from bottom */
 .input-gradient.keyboard-open{
   opacity:1;
-  top:0;
-  height:auto;
+  height:50vh;
   background:linear-gradient(to bottom,
     transparent 0%,
     transparent 30%,
