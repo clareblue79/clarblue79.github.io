@@ -499,11 +499,11 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
   .hero-work-line{
     transition:opacity 1.4s cubic-bezier(0.25,1,0.5,1),transform 1.4s cubic-bezier(0.25,1,0.5,1);
   }
-  .hero-input-area.scroll-hidden{
+  .hero-input-area.show.scroll-hidden{
     opacity:0;
     transform:translateX(-50%) translateY(12px);
     pointer-events:none;
-    transition:opacity 0.3s ease, transform 0.3s ease;
+    transition:opacity 0.15s ease-out, transform 0.15s ease-out !important;
   }
   .hero-input-area.keyboard-active{
     transition:opacity 0.6s ease, bottom 0.35s cubic-bezier(0.16,1,0.3,1);
