@@ -211,12 +211,15 @@
       const kbHeight = Math.max(0, window.innerHeight - vv.height);
       keyboardOpen = kbHeight > 100;
       if (keyboardOpen) {
+        heroInputArea.classList.add('keyboard-open'); // adds padding-top, must be before height read
+        const heroH = heroInputArea.offsetHeight;     // forces reflow — correct post-padding height
+        inputBackdrop.style.height = (kbHeight + heroH + 8 + 88) + 'px'; // 88 = gradient height
         inputBackdrop.classList.add('keyboard-open');
         if (inputGradient) inputGradient.classList.add('keyboard-open');
-        heroInputArea.classList.add('keyboard-open');
         heroInputArea.style.transition = 'opacity 0.6s ease, bottom 0.4s cubic-bezier(0.16,1,0.3,1)';
         heroInputArea.style.bottom = (kbHeight + 8) + 'px';
       } else {
+        inputBackdrop.style.height = '0';
         inputBackdrop.classList.remove('keyboard-open');
         if (inputGradient) inputGradient.classList.remove('keyboard-open');
         heroInputArea.classList.remove('keyboard-open');
