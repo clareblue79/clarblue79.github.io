@@ -118,7 +118,7 @@
     // After grid completes, start tagline and the rest of the sequence
     setTimeout(() => {
       heroTagline.classList.add('show');
-      const typingSpeed = isMobile() ? 32 : 45;
+      const typingSpeed = isMobile() ? 32 : 60;
       typeWriter(heroTagline, taglineText, typingSpeed, () => {
         heroWorkLine.classList.add('show');
         setInputBottom();
