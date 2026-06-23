@@ -239,7 +239,7 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
 .card-visual video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block;background:transparent;}
 .card-visual-transparent{display:block;height:auto;overflow:hidden;background:radial-gradient(ellipse at 60% 40%,#F5F0FF 0%,#EEF3FF 35%,#F2FAF5 65%,#FFF9F5 100%);}
 .card-visual-transparent video{position:static;width:100%;height:auto;display:block;background:transparent;}
-.card-visual-transparent img.mobile-only{width:100%;height:auto;display:none;background:transparent;}
+.card-visual-transparent img{width:100%;height:auto;display:block;background:transparent;}
 .mobile-only{display:none;}
 .desktop-only{display:block;}
 /* Tag overlaid on visual */
