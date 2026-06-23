@@ -127,7 +127,7 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
     transparent 100%
   );
   pointer-events:none;z-index:98;
-  transition:background 0.3s ease,height 0.35s cubic-bezier(0.16,1,0.3,1);
+  transition:height 0.35s cubic-bezier(0.16,1,0.3,1);
 }
 /* When keyboard panel is active, expand to full viewport — cream fades in from bottom */
 .input-gradient.keyboard-open{
@@ -137,8 +137,8 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
     transparent 0%,
     transparent 30%,
     rgba(250,249,247,0.5) 48%,
-    var(--bg) 62%,
-    var(--bg) 100%
+    rgba(250,249,247,1) 62%,
+    rgba(250,249,247,1) 100%
   );
 }
 /* iOS bottom-chrome fill: 1px fixed anchor + inner overflows downward behind toolbar */
