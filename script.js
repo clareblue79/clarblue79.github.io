@@ -284,7 +284,7 @@
         clearTimeout(scrollHideTimer);
         scrollHideTimer = setTimeout(() => {
           heroInputArea.classList.remove('scroll-hidden');
-        }, 400);
+        }, 200);
       }
       if (pastHero) {
         heroInputArea.style.bottom = (BOTTOM_SCROLLED + getSafeArea()) + 'px';
