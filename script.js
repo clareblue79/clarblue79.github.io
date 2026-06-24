@@ -168,7 +168,7 @@
     }, 150);
   }
 
-  const BOTTOM_SCROLLED = 40;
+  const BOTTOM_SCROLLED = 48;
   const BOTTOM_HERO_MOBILE = 150;
   const safeBottom = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sab') || '0') || 0;
 
@@ -184,7 +184,10 @@
   function setInputBottom() {
     const sab = getSafeArea();
     if (isMobile()) {
-      heroInputArea.style.bottom = (BOTTOM_HERO_MOBILE + sab) + 'px';
+      const workLine = document.getElementById('heroWorkLine');
+      const workLineRect = workLine.getBoundingClientRect();
+      const bottomFromWorkLine = window.innerHeight - workLineRect.bottom - 128;
+      heroInputArea.style.bottom = Math.max(BOTTOM_SCROLLED, bottomFromWorkLine) + sab + 'px';
     } else {
       heroInputArea.style.bottom = 'calc(28vh + ' + sab + 'px)';
     }
