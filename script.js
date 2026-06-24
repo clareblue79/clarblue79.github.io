@@ -168,7 +168,7 @@
     }, 150);
   }
 
-  const BOTTOM_SCROLLED = 28;
+  const BOTTOM_SCROLLED = 40;
   const safeBottom = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sab') || '0') || 0;
 
   function getSafeArea() {
