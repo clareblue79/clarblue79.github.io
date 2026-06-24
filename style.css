@@ -504,7 +504,7 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
     transition:opacity 0.6s ease, bottom 0.35s cubic-bezier(0.16,1,0.3,1);
   }
   /* Reduce heavy shadow on mobile to prevent grey box behind Safari toolbar */
-  .message-bar{box-shadow:0 4px 16px rgba(0,0,0,0.16),0 2px 6px rgba(0,0,0,0.10);}
-  .message-bar:focus-within{box-shadow:0 8px 28px rgba(0,0,0,0.22),0 3px 10px rgba(0,0,0,0.12);}
+  .message-bar{box-shadow:0 6px 20px rgba(0,0,0,0.22),0 2px 8px rgba(0,0,0,0.14);}
+  .message-bar:focus-within{box-shadow:0 10px 32px rgba(0,0,0,0.28),0 4px 12px rgba(0,0,0,0.16);}
   .bar-disclaimer{display:none;}
 }

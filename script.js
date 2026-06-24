@@ -169,6 +169,7 @@
   }
 
   const BOTTOM_SCROLLED = 40;
+  const BOTTOM_HERO_MOBILE = 100;
   const safeBottom = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sab') || '0') || 0;
 
   function getSafeArea() {
@@ -183,7 +184,7 @@
   function setInputBottom() {
     const sab = getSafeArea();
     if (isMobile()) {
-      heroInputArea.style.bottom = (BOTTOM_SCROLLED + sab) + 'px';
+      heroInputArea.style.bottom = (BOTTOM_HERO_MOBILE + sab) + 'px';
     } else {
       heroInputArea.style.bottom = 'calc(28vh + ' + sab + 'px)';
     }
