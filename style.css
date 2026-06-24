@@ -457,7 +457,7 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
 @media(max-width:640px){
   nav{padding:14px 24px;}
   .nav-available:hover .available-popover{opacity:0;pointer-events:none;}
-  .hero{padding:26vh 24px 120px;}
+  .hero{padding:28vh 24px 120px;}
   .section{padding:60px 24px;}
   .soft-divider{margin:0 24px;}
   body{padding-bottom:80px;}
