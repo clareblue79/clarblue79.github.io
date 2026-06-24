@@ -503,8 +503,9 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
   .hero-input-area.keyboard-active{
     transition:opacity 0.6s ease, bottom 0.35s cubic-bezier(0.16,1,0.3,1);
   }
-  /* Reduce heavy shadow on mobile to prevent grey box behind Safari toolbar */
-  .message-bar{box-shadow:0 6px 20px rgba(0,0,0,0.22),0 2px 8px rgba(0,0,0,0.14);}
-  .message-bar:focus-within{box-shadow:0 10px 32px rgba(0,0,0,0.28),0 4px 12px rgba(0,0,0,0.16);}
+  /* Keep default shadow in hero section, darker when scrolled past hero */
+  .message-bar.scrolled-bar{box-shadow:0 6px 20px rgba(0,0,0,0.22),0 2px 8px rgba(0,0,0,0.14);}
+  .message-bar.scrolled-bar:focus-within{box-shadow:0 10px 32px rgba(0,0,0,0.28),0 4px 12px rgba(0,0,0,0.16);}
+  .message-bar:focus-within{margin-bottom:16px;}
   .bar-disclaimer{display:none;}
 }

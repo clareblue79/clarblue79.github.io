@@ -169,7 +169,7 @@
   }
 
   const BOTTOM_SCROLLED = 40;
-  const BOTTOM_HERO_MOBILE = 100;
+  const BOTTOM_HERO_MOBILE = 150;
   const safeBottom = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sab') || '0') || 0;
 
   function getSafeArea() {
@@ -297,6 +297,7 @@
         heroInputArea.style.bottom = (BOTTOM_SCROLLED + getSafeArea()) + 'px';
         if (isMobile()) {
           chipsWrap.classList.remove('mobile-visible');
+          document.getElementById('messageBar').classList.add('scrolled-bar');
         } else if (!chipsAlive) {
           chipsWrap.classList.add('hidden');
         }
@@ -304,6 +305,7 @@
         setInputBottom();
         if (isMobile()) {
           chipsWrap.classList.add('mobile-visible');
+          document.getElementById('messageBar').classList.remove('scrolled-bar');
         } else {
           chipsWrap.classList.remove('hidden');
         }
