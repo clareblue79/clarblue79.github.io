@@ -230,7 +230,7 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
 .card-visual-publisher{background:linear-gradient(135deg,#F8F8FC 0%,#F0F0F6 30%,#EAEDF5 55%,#E8E6F0 75%,#F2F0F6 100%);padding:16px 20px;}
 .card-visual-publisher .publisher-logo{position:relative !important;max-width:80% !important;max-height:75% !important;width:auto !important;height:auto !important;object-fit:contain !important;border:none;border-radius:0;box-shadow:none;transform:scale(1.25);}
 .card-visual-smb{background:linear-gradient(135deg,#FFF6EE 0%,#FEF1E8 25%,#F8F5F0 45%,#FFF2F4 70%,#FFF8F0 100%);padding:0;}
-.card-visual-smb .smb-gif{position:relative !important;width:100% !important;height:100% !important;max-width:100% !important;max-height:100% !important;object-fit:cover !important;object-position:center 25% !important;border-radius:0;box-shadow:none;border:none;animation:none !important;filter:none !important;transform:scale(1.25) translateY(-25%);transform-origin:center top;}
+.card-visual-smb .smb-gif{position:relative !important;width:100% !important;height:100% !important;max-width:100% !important;max-height:100% !important;object-fit:cover !important;object-position:center top !important;border-radius:0;box-shadow:none;border:none;animation:none !important;filter:none !important;transform:scale(1.25);transform-origin:center 30%;}
 .card-visual-game{background:linear-gradient(135deg,#F4EEF0 0%,#EDE4E8 100%);}
 .card-visual-grid{position:absolute;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;}
 .card-visual-icon{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:6px;}
