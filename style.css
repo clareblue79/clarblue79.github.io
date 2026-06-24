@@ -270,7 +270,7 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
 .card-expanded-inner{padding-top:14px;border-top:0.5px solid var(--line);margin-top:12px;display:flex;flex-direction:column;gap:12px;}
 .detail-block{display:flex;flex-direction:column;gap:4px;padding-left:14px;position:relative;}
 .detail-block::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;border-radius:2px;background:linear-gradient(to bottom,#C4B0F0,#A8C4F0,#A8D8C0);}
-.detail-label{font-family:'Quicksand',sans-serif;font-size:11px;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;color:#111110;}
+.detail-label{font-family:'Quicksand',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;color:#111110;}
 .detail-label-link{text-decoration:none;display:inline-block;margin-bottom:2px;width:fit-content;align-self:flex-start;}
 .detail-label-link .detail-label{border-bottom:0.5px solid rgba(0,0,0,0.2);padding-bottom:1px;transition:border-bottom-color 0.15s,color 0.15s;}
 .detail-label-link:hover .detail-label{border-bottom-color:#D4C8FF;color:#6B5FC4;}
@@ -278,7 +278,7 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
 .link-preview.visible{opacity:1;transform:translateY(0) scale(1);}
 .link-preview img{width:100%;height:160px;object-fit:cover;object-position:top;display:block;}
 .link-preview-label{padding:8px 12px;font-family:'Quicksand',sans-serif;font-size:11px;font-weight:600;color:var(--ink-muted);letter-spacing:0.02em;}
-.detail-text{font-size:13px;color:#4A4845;line-height:1.65;font-family:'Quicksand',sans-serif;}
+.detail-text{font-size:13px;color:#3D3B38;line-height:1.65;font-family:'Quicksand',sans-serif;}
 .detail-link{display:inline-block;width:fit-content;font-size:12px;font-weight:600;font-family:'Quicksand',sans-serif;color:var(--ink);text-decoration:none;border-bottom:0.5px solid var(--ink);padding-bottom:1px;margin-top:4px;}
 .detail-link:hover{color:var(--accent);border-bottom-color:var(--accent);}
 .case-study-link{display:inline-block;width:fit-content;font-size:12px;font-weight:600;font-family:'Quicksand',sans-serif;color:var(--ink);text-decoration:none;border-bottom:0.5px solid var(--ink);padding-bottom:1px;transition:color 0.18s;}
