@@ -138,7 +138,11 @@
       i++;
       if (i >= text.length) {
         clearInterval(interval);
-        setTimeout(() => { el.innerHTML = typed; if (cb) cb(); }, 600);
+        setTimeout(() => { 
+          const cursor = el.querySelector('.cursor');
+          if (cursor) cursor.style.opacity = '0';
+          if (cb) cb();
+        }, 600);
       }
     }, speed);
   }
