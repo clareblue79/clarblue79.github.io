@@ -89,7 +89,7 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
 /* Tagline */
 .hero-tagline{font-family:'Trirong',serif;font-size:clamp(18px,2.4vw,24px);font-weight:300;font-style:italic;color:#2E2C29;margin-bottom:18px;max-width:560px;line-height:1.6;opacity:0;transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1);min-height:1.6em;}
 .hero-tagline.show{opacity:1;}
-.cursor{display:inline-block;width:2px;height:1em;background:#2E2C29;vertical-align:middle;margin-left:2px;animation:blink 0.8s step-end infinite;transition:opacity 0.3s;}
+.cursor{display:inline-block;width:1.5px;height:1em;background:#6B6965;vertical-align:middle;margin-left:2px;animation:blink 0.8s step-end infinite;transition:opacity 0.3s;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
 
 /* Work line */
