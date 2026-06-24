@@ -190,7 +190,7 @@
     if (isMobile()) {
       const workLine = document.getElementById('heroWorkLine');
       const workLineRect = workLine.getBoundingClientRect();
-      const bottomFromWorkLine = window.innerHeight - workLineRect.bottom - 200;
+      const bottomFromWorkLine = window.innerHeight - workLineRect.bottom - 168;
       heroInputArea.style.bottom = Math.max(BOTTOM_SCROLLED, bottomFromWorkLine) + sab + 'px';
     } else {
       heroInputArea.style.bottom = 'calc(28vh + ' + sab + 'px)';
