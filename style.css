@@ -362,10 +362,10 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
 .v-row-top{display:flex;align-items:center;gap:8px;}
 .v-tag{font-family:var(--mono);font-size:10px;color:var(--ink-muted);letter-spacing:0.03em;}
 .v-city{font-size:14px;font-weight:600;color:var(--ink-soft);font-family:'Quicksand',sans-serif;}
-.v-detail{font-size:13px;color:var(--ink-muted);line-height:1.5;font-family:'Quicksand',sans-serif;padding-top:2px;}
+.v-detail{font-size:14px;color:#3D3B38;line-height:1.6;font-family:'Quicksand',sans-serif;padding-top:2px;}
 .v-current .v-tag{color:var(--accent);}
 .v-current .v-city{color:var(--ink);}
-.v-current .v-detail{color:var(--ink-soft);}
+.v-current .v-detail{color:#3D3B38;}
 /* Emoji ripple */
 .v-emojis{display:inline-flex;gap:2px;align-items:center;margin-left:4px;}
 .v-emoji{font-size:15px;opacity:0;transform:scale(0.3) translateY(6px);display:inline-block;}
