@@ -489,12 +489,12 @@
       // Open mailto
       window.location.href = 'mailto:clarefranceslee@gmail.com?subject=Portfolio inquiry&body=' + encodeURIComponent(msg) + '%0A%0AFrom: ' + encodeURIComponent(email);
 
-      // Reset after 2 seconds
+      // Reset after 1 second and close
       setTimeout(() => {
         btn.classList.remove('sent');
         btn.textContent = 'Send message →';
         closeModal();
-      }, 2000);
+      }, 1000);
     }, 1500);
   };
 
