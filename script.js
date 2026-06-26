@@ -681,16 +681,14 @@
   const favAway = new Image(); favAway.src = 'assets/favicon-dontgo-32.png';
 
   function setFavicon(path) {
-    let link = document.getElementById('faviconEl');
-    if (!link) {
-      link = document.createElement('link');
-      link.id = 'faviconEl';
-      link.rel = 'icon';
-      link.type = 'image/png';
-      link.sizes = '256x256';
-      document.head.appendChild(link);
-    }
-    link.setAttribute('href', path);
+    const old = document.getElementById('faviconEl');
+    if (old) old.parentNode.removeChild(old);
+    const link = document.createElement('link');
+    link.id = 'faviconEl';
+    link.rel = 'icon';
+    link.type = 'image/png';
+    link.href = path;
+    document.head.appendChild(link);
   }
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
