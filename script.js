@@ -428,18 +428,74 @@
 
   /* ---- MODAL ---- */
   const overlay = document.getElementById('modalOverlay');
-  window.openModal = function(msg) { document.getElementById('modalMessage').value = msg || ''; overlay.classList.add('show'); };
+  window.openModal = function(msg) {
+    document.getElementById('modalMessage').value = msg || '';
+    // Reset state on open
+    const btn = document.getElementById('modalSendBtn');
+    btn.textContent = 'Send message →';
+    btn.classList.remove('sending', 'sent');
+    document.getElementById('msgError').textContent = '';
+    document.getElementById('emailError').textContent = '';
+    document.getElementById('modalMessage').classList.remove('field-error');
+    document.getElementById('modalEmail').classList.remove('field-error');
+    overlay.classList.add('show');
+  };
   function closeModal() { overlay.classList.remove('show'); }
   sendBtn.addEventListener('click', () => { window.openModal(msgInput.value.trim()); msgInput.value = ''; });
   msgInput.addEventListener('keydown', e => { if(e.key === 'Enter') { window.openModal(msgInput.value.trim()); msgInput.value = ''; }});
   document.getElementById('modalClose').addEventListener('click', closeModal);
   overlay.addEventListener('click', e => { if(e.target === overlay) closeModal(); });
   window.handleModalSend = function() {
-    const msg = document.getElementById('modalMessage').value.trim();
-    const email = document.getElementById('modalEmail').value.trim();
-    if (!msg || !email) return;
-    window.location.href = 'mailto:clarefranceslee@gmail.com?subject=Portfolio inquiry&body=' + encodeURIComponent(msg) + '%0A%0AFrom: ' + encodeURIComponent(email);
-    closeModal();
+    const msgEl = document.getElementById('modalMessage');
+    const emailEl = document.getElementById('modalEmail');
+    const msgError = document.getElementById('msgError');
+    const emailError = document.getElementById('emailError');
+    const btn = document.getElementById('modalSendBtn');
+    const msg = msgEl.value.trim();
+    const email = emailEl.value.trim();
+
+    // Clear previous errors
+    msgError.textContent = '';
+    emailError.textContent = '';
+    msgEl.classList.remove('field-error');
+    emailEl.classList.remove('field-error');
+
+    let hasError = false;
+    if (!msg) {
+      msgError.textContent = 'Please enter a message.';
+      msgEl.classList.add('field-error');
+      hasError = true;
+    }
+    if (!email) {
+      emailError.textContent = 'Email is required.';
+      emailEl.classList.add('field-error');
+      hasError = true;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      emailError.textContent = 'Please enter a valid email.';
+      emailEl.classList.add('field-error');
+      hasError = true;
+    }
+    if (hasError) return;
+
+    // Sending animation
+    btn.classList.add('sending');
+    btn.innerHTML = 'Sending <span class="sending-dot"></span><span class="sending-dot"></span><span class="sending-dot"></span>';
+
+    setTimeout(() => {
+      btn.classList.remove('sending');
+      btn.classList.add('sent');
+      btn.textContent = '✓ Message sent';
+
+      // Open mailto
+      window.location.href = 'mailto:clarefranceslee@gmail.com?subject=Portfolio inquiry&body=' + encodeURIComponent(msg) + '%0A%0AFrom: ' + encodeURIComponent(email);
+
+      // Reset after 2 seconds
+      setTimeout(() => {
+        btn.classList.remove('sent');
+        btn.textContent = 'Send message →';
+        closeModal();
+      }, 2000);
+    }, 1500);
   };
 
   /* ---- HOBBY TOOLTIPS ---- */
