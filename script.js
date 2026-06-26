@@ -676,15 +676,24 @@
   }
 
   /* ---- TAB AWAY ---- */
-  const faviconEl = document.getElementById('faviconEl');
-  const favBust = '?v=2';
+  function setFavicon(path) {
+    const old = document.getElementById('faviconEl');
+    if (old) old.remove();
+    const link = document.createElement('link');
+    link.id = 'faviconEl';
+    link.rel = 'icon';
+    link.type = 'image/png';
+    link.sizes = '256x256';
+    link.href = path + '?t=' + Date.now();
+    document.head.appendChild(link);
+  }
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       document.title = "Don't go just yet.";
-      if (faviconEl) faviconEl.href = 'assets/favicon-dontgo-32.png' + favBust;
+      setFavicon('assets/favicon-dontgo-32.png');
     } else {
       document.title = 'Clare Lee - Designer';
-      if (faviconEl) faviconEl.href = 'assets/favicon-32.png' + favBust;
+      setFavicon('assets/favicon-32.png');
     }
   });
 
