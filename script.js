@@ -676,16 +676,21 @@
   }
 
   /* ---- TAB AWAY ---- */
+  // Preload both favicons
+  const favDefault = new Image(); favDefault.src = 'assets/favicon-32.png';
+  const favAway = new Image(); favAway.src = 'assets/favicon-dontgo-32.png';
+
   function setFavicon(path) {
-    const old = document.getElementById('faviconEl');
-    if (old) old.remove();
-    const link = document.createElement('link');
-    link.id = 'faviconEl';
-    link.rel = 'icon';
-    link.type = 'image/png';
-    link.sizes = '256x256';
-    link.href = path + '?t=' + Date.now();
-    document.head.appendChild(link);
+    let link = document.getElementById('faviconEl');
+    if (!link) {
+      link = document.createElement('link');
+      link.id = 'faviconEl';
+      link.rel = 'icon';
+      link.type = 'image/png';
+      link.sizes = '256x256';
+      document.head.appendChild(link);
+    }
+    link.setAttribute('href', path);
   }
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
