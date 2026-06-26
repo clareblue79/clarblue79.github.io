@@ -676,27 +676,14 @@
   }
 
   /* ---- TAB AWAY ---- */
-  // Preload both favicons
-  const favDefault = new Image(); favDefault.src = 'assets/favicon-32.png';
-  const favAway = new Image(); favAway.src = 'assets/favicon-dontgo-32.png';
-
-  function setFavicon(path) {
-    const old = document.getElementById('faviconEl');
-    if (old) old.parentNode.removeChild(old);
-    const link = document.createElement('link');
-    link.id = 'faviconEl';
-    link.rel = 'icon';
-    link.type = 'image/png';
-    link.href = path;
-    document.head.appendChild(link);
-  }
+  const faviconEl = document.getElementById('faviconEl');
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       document.title = "Don't go just yet.";
-      setFavicon('assets/favicon-dontgo-32.png');
+      if (faviconEl) faviconEl.href = 'assets/favicon-dontgo-32.png';
     } else {
       document.title = 'Clare Lee - Designer';
-      setFavicon('assets/favicon-32.png');
+      if (faviconEl) faviconEl.href = 'assets/favicon-32.png';
     }
   });
 
