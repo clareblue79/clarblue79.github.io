@@ -677,13 +677,14 @@
 
   /* ---- TAB AWAY ---- */
   const faviconEl = document.getElementById('faviconEl');
+  const favBust = '?v=2';
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       document.title = "Don't go just yet.";
-      if (faviconEl) faviconEl.href = 'assets/favicon-dontgo-32.png';
+      if (faviconEl) faviconEl.href = 'assets/favicon-dontgo-32.png' + favBust;
     } else {
       document.title = 'Clare Lee - Designer';
-      if (faviconEl) faviconEl.href = 'assets/favicon-32.png';
+      if (faviconEl) faviconEl.href = 'assets/favicon-32.png' + favBust;
     }
   });
 
