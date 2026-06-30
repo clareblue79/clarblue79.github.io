@@ -1,4 +1,6 @@
-﻿document.addEventListener('DOMContentLoaded', function() {
+﻿emailjs.init('1Z3uxOL1n0htfjM9S');
+
+document.addEventListener('DOMContentLoaded', function() {
 
   const isMobile = () => window.innerWidth <= 640;
 
@@ -440,7 +442,15 @@
     document.getElementById('modalEmail').classList.remove('field-error');
     overlay.classList.add('show');
   };
-  function closeModal() { overlay.classList.remove('show'); }
+  function closeModal() {
+    overlay.classList.remove('show');
+    const btn = document.getElementById('modalSendBtn');
+    if (btn) {
+      btn.disabled = false;
+      btn.classList.remove('sent', 'sending');
+      btn.textContent = 'Send message →';
+    }
+  }
   sendBtn.addEventListener('click', () => { window.openModal(msgInput.value.trim()); msgInput.value = ''; });
   msgInput.addEventListener('keydown', e => { if(e.key === 'Enter') { window.openModal(msgInput.value.trim()); msgInput.value = ''; }});
   document.getElementById('modalClose').addEventListener('click', closeModal);
@@ -477,25 +487,29 @@
     }
     if (hasError) return;
 
-    // Sending animation
-    btn.classList.add('sending');
-    btn.innerHTML = 'Sending <span class="sending-dot"></span><span class="sending-dot"></span><span class="sending-dot"></span>';
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
 
-    setTimeout(() => {
-      btn.classList.remove('sending');
-      btn.classList.add('sent');
-      btn.textContent = '✓ Message sent';
-
-      // Open mailto
-      window.location.href = 'mailto:clarefranceslee@gmail.com?subject=Portfolio inquiry&body=' + encodeURIComponent(msg) + '%0A%0AFrom: ' + encodeURIComponent(email);
-
-      // Reset after 1 second and close
-      setTimeout(() => {
-        btn.classList.remove('sent');
+    emailjs.send('service_zr4ymqk', 'template_jd8xuj3', { message: msg, email: email })
+      .then(() => {
+        msgEl.value = '';
+        emailEl.value = '';
+        btn.textContent = 'Message sent ✓';
+        btn.classList.add('sent');
+        const existingErr = document.getElementById('modalError');
+        if (existingErr) existingErr.remove();
+      }, () => {
+        btn.disabled = false;
         btn.textContent = 'Send message →';
-        closeModal();
-      }, 1000);
-    }, 1500);
+        let err = document.getElementById('modalError');
+        if (!err) {
+          err = document.createElement('p');
+          err.id = 'modalError';
+          err.style.cssText = 'margin:8px 0 0;font-size:12px;color:#c0392b;text-align:center;';
+          btn.insertAdjacentElement('afterend', err);
+        }
+        err.textContent = 'Something went wrong — try emailing me directly at clarefranceslee@gmail.com';
+      });
   };
 
   /* ---- HOBBY TOOLTIPS ---- */
