@@ -173,7 +173,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const BOTTOM_SCROLLED = 48;
   const BOTTOM_HERO_MOBILE = 150;
-  const safeBottom = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sab') || '0') || 0;
 
   function getSafeArea() {
     const el = document.createElement('div');
@@ -577,23 +576,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
-
-  const vRows = document.querySelectorAll('.version-row');
-  const vPhotos = document.querySelectorAll('.version-photo');
-  const photoDefault = document.getElementById('photoDefault');
-
-  function showPhoto(id) {
-    photoDefault.style.opacity = '0';
-    vPhotos.forEach(p => p.classList.remove('active'));
-    const ph = document.getElementById(id);
-    if (ph) ph.classList.add('active');
-  }
-  function hidePhoto() {
-    photoDefault.style.opacity = '1';
-    vPhotos.forEach(p => p.classList.remove('active'));
-  }
-
-  // Version row photo swap removed — emoji ripple only
 
 
 
