@@ -117,19 +117,16 @@ document.addEventListener('DOMContentLoaded', function() {
   positionName();
   if (isMobile() && navLogoName) navLogoName.style.opacity = '1';
   buildGrid(() => {
-    // After grid completes, start tagline and the rest of the sequence
-    setTimeout(() => {
-      heroTagline.classList.add('show');
-      const typingSpeed = isMobile() ? 32 : 60;
-      typeWriter(heroTagline, taglineText, typingSpeed, () => {
-        heroWorkLine.classList.add('show');
-        setInputBottom();
-        // Let bottom settle before triggering the fade-up
-        requestAnimationFrame(() => {
-          heroInputArea.classList.add('show');
-        });
-      });
-    }, 400);
+    // Position and message bar appear immediately when grid completes
+    heroWorkLine.classList.add('show');
+    setInputBottom();
+    requestAnimationFrame(() => {
+      heroInputArea.classList.add('show');
+    });
+    // Tagline typeout starts right after
+    heroTagline.classList.add('show');
+    const typingSpeed = isMobile() ? 32 : 60;
+    typeWriter(heroTagline, taglineText, typingSpeed, null);
   });
 
   function typeWriter(el, text, speed, cb) {
