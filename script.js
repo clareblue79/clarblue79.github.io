@@ -53,9 +53,9 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(() => shineH.remove(), 1000);
     }, hDelay + 100);
 
-    // Fire callback once the last horizontal line's transition completes
+    // Fire callback slightly before the last grid lines finish — content fades in as grid completes
     if (onComplete) {
-      const gridDone = hDelay + (hLines.length - 1) * 8 + 1420;
+      const gridDone = hDelay + (hLines.length - 1) * 8 + 400;
       setTimeout(onComplete, gridDone);
     }
   }
