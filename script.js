@@ -286,18 +286,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!keyboardOpen) {
       if (isMobile()) {
-        // Instantly hide on scroll (both manual and button-induced)
+        // Tie opacity directly to scroll: full at top, gone at 1 page height
+        const mobileOpacity = 1 - clamp(currentY / window.innerHeight, 0, 1);
         heroInputArea.style.transition = 'none';
-        heroInputArea.style.opacity = '0';
-        heroInputArea.style.pointerEvents = 'none';
-        clearTimeout(scrollHideTimer);
-        // Smooth fade-in after scrolling pauses
-        scrollHideTimer = setTimeout(() => {
-          heroInputArea.style.transition = 'opacity 0.5s cubic-bezier(0.25,1,0.5,1)';
-          heroInputArea.style.opacity = '1';
-          heroInputArea.style.pointerEvents = '';
-          setTimeout(() => { heroInputArea.style.transition = ''; }, 550);
-        }, 400);
+        heroInputArea.style.opacity = mobileOpacity;
+        heroInputArea.style.pointerEvents = mobileOpacity < 0.05 ? 'none' : '';
       }
       if (pastHero) {
         heroInputArea.style.bottom = (BOTTOM_SCROLLED + getSafeArea()) + 'px';
