@@ -234,7 +234,7 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
 .card-visual-solstice{background:#FBE1CC;}
 .solstice-cover-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42%;aspect-ratio:1;background:radial-gradient(circle,#F08A1C 0%,#F3A04A 35%,rgba(246,184,120,0.55) 60%,rgba(251,225,204,0) 75%);filter:blur(18px);}
 .solstice-cover-text{position:relative;z-index:1;display:flex;align-items:center;gap:10px;}
-.solstice-cover-name{font-family:'Spectral',serif;font-weight:300;letter-spacing:-0.01em;color:#1A1A1A;font-size:clamp(22px,3vw,28px);}
+.solstice-cover-name{font-family:'Aileron','Helvetica Neue',Arial,sans-serif;font-weight:400;letter-spacing:-0.01em;color:#1A1A1A;font-size:clamp(22px,3vw,28px);}
 .solstice-logo{height:28px;width:auto;display:block;}
 .card-visual-smb{background:linear-gradient(135deg,#FFF6EE 0%,#FEF1E8 25%,#F8F5F0 45%,#FFF2F4 70%,#FFF8F0 100%);padding:0;}
 .card-visual-smb .smb-gif{position:relative !important;width:100% !important;height:100% !important;max-width:100% !important;max-height:100% !important;object-fit:cover !important;object-position:center 40% !important;border-radius:0;box-shadow:none;border:none;animation:none !important;filter:none !important;}
