@@ -89,8 +89,8 @@ nav.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
 /* Tagline */
 .hero-tagline{font-family:'Trirong',serif;font-size:clamp(18px,2.4vw,24px);font-weight:300;font-style:italic;color:#2E2C29;margin-bottom:18px;max-width:560px;line-height:1.6;opacity:0;transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1);min-height:1.6em;}
 .hero-tagline.show{opacity:1;}
-.hero-tagline a{color:inherit;text-decoration:none;border-bottom:0.5px solid rgba(46,35,41,0.3);transition:color 0.2s,border-bottom-color 0.2s;}
-.hero-tagline a:hover{color:#6B5FC4;border-bottom-color:rgba(107,95,196,0.5);}
+.hero-tagline a{color:inherit;text-decoration:none;font-weight:600;transition:color 0.2s;}
+.hero-tagline a:hover{color:#6B5FC4;}
 .cursor{display:inline-block;width:1.5px;height:1em;background:#6B6965;vertical-align:middle;margin-left:2px;animation:blink 0.8s step-end infinite;transition:opacity 0.3s;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
 
