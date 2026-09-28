@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const heroTagline = document.getElementById('heroTagline');
   const heroWorkLine = document.getElementById('heroWorkLine');
   const heroInputArea = document.getElementById('heroInputArea');
-  const taglineText = 'Designing the AI future before it designs us.';
+  const taglineText = 'Building @ Solstice Health';
 
   const NAV_H = 52;
   const SCROLL_DIST = 280;
@@ -126,7 +126,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Tagline typeout starts right after
     heroTagline.classList.add('show');
     const typingSpeed = isMobile() ? 32 : 60;
-    typeWriter(heroTagline, taglineText, typingSpeed, null);
+    typeWriter(heroTagline, taglineText, typingSpeed, () => {
+      heroTagline.innerHTML = 'Building @ <a href="https://www.solsticehealth.co/" target="_blank" rel="noopener" class="tagline-link">Solstice Health</a>';
+    });
   });
 
   function typeWriter(el, text, speed, cb) {
