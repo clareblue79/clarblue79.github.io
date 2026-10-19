@@ -506,7 +506,7 @@ document.addEventListener('DOMContentLoaded', function() {
           err.style.cssText = 'margin:8px 0 0;font-size:12px;color:#c0392b;text-align:center;';
           btn.insertAdjacentElement('afterend', err);
         }
-        err.textContent = 'Something went wrong — try emailing me directly at clarefranceslee@gmail.com';
+        err.textContent = 'Something went wrong. Try emailing me directly at clarefranceslee@gmail.com';
       });
   };
 
